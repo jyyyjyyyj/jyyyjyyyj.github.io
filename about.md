@@ -13,6 +13,6 @@ Hi, 我是JYY，一位留学日本的硕士一年级学生。
 
 Hi, this is JYY, a first-year master student studying abroad in Japan. 
 
-My research topic is digital engineering. Simply speaking, digital engineering obtains 3d models of real-world objects through optical\CT scanning and then process them. My hobbies are film photography and playing video games.
+My research topic is digital engineering. Simply speaking, digital engineering obtains 3d models of real-world objects through optical\CT scanning and processes them. My hobbies are film photography and playing video games.
 
 This blog is mainly used to record my daily life (mainly related to my research), such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming, things related to my hobbies, etc. The posts may be in Chinese or English.  
