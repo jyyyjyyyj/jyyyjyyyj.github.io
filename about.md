@@ -9,7 +9,8 @@ Hi, 我是JYY，一位留学日本的硕士一年级学生。
 
 我想用我的博客来记录自己的日常生活（主要是学习相关，阿宅也没啥别的事情好记录的），比如复现的paper，图形学、图像处理、光学扫描、CT扫描以及编程上的知识，与我的爱好相关的内容等等。博客的内容可能是中文的，也可能是英文的。
 
-
+<br>
+<br>
 
 Hi, this is JYY, a first-year master student studying abroad in Japan. 
 
