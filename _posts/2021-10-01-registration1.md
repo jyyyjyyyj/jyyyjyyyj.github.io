@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Point cloud template matching (1)
-subtitle: Edge Detection of Point Cloud.
+subtitle: 点云模板匹配(1)
 tags: [point cloud, papers]
 #private: true
 ---
