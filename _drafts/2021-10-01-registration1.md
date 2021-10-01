@@ -47,7 +47,7 @@ $$\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-
 
 剩下的两个点特征的计算借鉴了Bendels等人在2006年发表的*Detecting Holes in Point Set Surfaces*。其中一个是angle criterion $f_a(p)$，另一个是half-disc criterion $f_h(p)$。这两个特征在原文里被一笔带过了，不过可以参考Bendels的论文里的内容：
 <br>
-![enter description here](../assets/bendels_1.png)
+![](../assets/bendels_1.png)
 <br>
 计算这两个特征之前首先需要将$N_r(p)$ 投影到一个和法向量$e_3$垂直的平面上。$f_a(p)$计算的是在投影平面上，点$p$对应的那个点到与周围点的连线之间夹角的最大值，从上图的左侧可以看出，处在边缘的点对应的最大夹角明显大于非边缘点。$f_h(p)$计算的是$p$在投影平面上和投影点的中心(centroid)，也就是到周围点距离总和最短的那个点，之间的距离。从上图右侧可以看出，边缘点一般会比较偏离中心，因此这个距离会更大。
 
