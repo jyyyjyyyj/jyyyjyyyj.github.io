@@ -15,7 +15,7 @@ private: true
 
 论文中给出的流程图是这样的：
 <br>
-![](.../assets/workflow.png)
+![](../assets/workflow.png)
 
 -------------
 
@@ -39,7 +39,7 @@ $$\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-
 
 这三个特征值的选取借鉴了Hackel等人在2010年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里根据协方差矩阵特征值计算的特征（好拗口，哈哈哈）就比较多了，我截了张图：
 <br>
- ![](.../assets/pic1_eigenvalue.png)
+ ![](../assets/pic1_eigenvalue.png)
 <br>
 
 论文作者对$f_p(p)$的计算做了一个很小的改动，将上图表格里的planarity改成了non-planarity，改动的目的应该是让边缘点的每个特征的值都比非边缘点的大。
@@ -47,7 +47,7 @@ $$\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-
 
 剩下的两个点特征的计算借鉴了Bendels等人在2006年发表的*Detecting Holes in Point Set Surfaces*。其中一个是angle criterion $f_a(p)$，另一个是half-disc criterion $f_h(p)$。这两个特征在原文里被一笔带过了，不过可以参考Bendels的论文里的内容：
 <br>
-![enter description here](.../assets/bendels_1.png)
+![enter description here](../assets/bendels_1.png)
 <br>
 计算这两个特征之前首先需要将$N_r(p)$ 投影到一个和法向量$e_3$垂直的平面上。$f_a(p)$计算的是在投影平面上，点$p$对应的那个点到与周围点的连线之间夹角的最大值，从上图的左侧可以看出，处在边缘的点对应的最大夹角明显大于非边缘点。$f_h(p)$计算的是$p$在投影平面上和投影点的中心(centroid)，也就是到周围点距离总和最短的那个点，之间的距离。从上图右侧可以看出，边缘点一般会比较偏离中心，因此这个距离会更大。
 
@@ -57,7 +57,7 @@ $$\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-
 
 以下是边缘检测的结果，我用的是T-LESS dataset里面的模型：
 <br>
-![](.../assets/result.png)
+![](../assets/result.png)
 <br>
 
 可以看出对于个别带有圆柱面或者椭圆形状的模型，算法识别的效果不是很好，我觉得可能有两个原因，一是圆柱面边缘点具有的一些特征这些点也有，二是圆柱形的物体，比如管子，它们的边缘本身就很难判定。
