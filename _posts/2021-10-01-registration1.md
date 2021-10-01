@@ -1,3 +1,10 @@
+---
+layout: post
+title: Point Cloud template matching (1)
+subtitle: Edge Detection of Point Cloud.
+tags: [graphics, point cloud]
+private: true
+---
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     <script type="text/x-mathjax-config">
@@ -9,13 +16,7 @@
         });
     </script>
 </head>
----
-layout: post
-title: Point Cloud template matching (1)
-subtitle: Edge Detection of Point Cloud.
-tags: [graphics, point cloud]
-private: true
----
+
 国庆节快乐！这是我的第一篇正经博客！我决定从最近做的课题相关的内容开始。
 
 我的研究课题里需要做点云配准相关的工作，查了一些文献之后决定先参考这篇19年发表在 Computers & Graphics 上的论文: *Fast template matching and pose estimation in 3D point clouds*。 这篇论文对我的课题有比较大的参考价值。
