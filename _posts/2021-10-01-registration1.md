@@ -17,7 +17,7 @@ tags: [point cloud, papers]
     </script>
 </head>
 
-国庆节快乐！这是我的第一篇正经博客！我决定从最近做的课题相关的内容开始。
+国庆节快乐！这是我的第一篇正经博客！内容是关于最近复现的一篇论文。
 
 我的研究课题里需要做点云配准相关的工作，查了一些文献之后决定先参考这篇19年发表在 Computers & Graphics 上的论文: *Fast template matching and pose estimation in 3D point clouds*。 这篇论文对我的课题有比较大的参考价值。
 
@@ -52,7 +52,7 @@ $$
  
 很明显，边缘点的这三个特征的值会明显高于非边缘点（脑补了一下桌子边和桌面的区别），而且它们的值都介于0和1之间。
 
-这三个特征值的选取借鉴了Hackel等人在2010年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里基于特征值 (eigenvalue)计算的特征 (feature)就比较多了↓：
+这三个特征值的选取借鉴了Hackel等人在2016年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里基于特征值 (eigenvalue)计算的特征 (feature)就比较多了↓：
 <br>
  ![](../assets/pic1_eigenvalue.png)
 <br>
