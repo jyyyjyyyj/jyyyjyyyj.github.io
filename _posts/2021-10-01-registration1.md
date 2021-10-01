@@ -42,7 +42,7 @@ $$
 \sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-\overline{p})(p_i-\overline{p})^T
 $$
 
-其中 $\overline{p}$是邻域的中点(medoid)，$h()$是一个高斯窗口函数，$|N_r(p)|$指的是集合里点的总数。
+其中 $\overline{p}$是邻域的中点(medoid)，$h()$是一个高斯窗口函数，$\|N_r(p)\|$指的是集合里点的总数。
 
 协方差矩阵的三个特征值（从大到小排列）为$\lambda_1$，$\lambda_2$，$\lambda_3$，它们所对应的特征向量是$e_1$，$e_2$，$e_3$，其中前两个特征向量就是在该点的切向量，而第三个特征向量为法向量。根据这三个特征值（eigenvalue），我们可以得出以下的三个点特征（feature）：
 
