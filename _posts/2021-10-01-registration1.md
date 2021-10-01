@@ -52,7 +52,7 @@ $$
  
 很明显，边缘点的这三个特征的值会明显高于非边缘点（脑补了一下桌子边和桌面的区别），而且它们的值都介于0和1之间。
 
-这三个特征值的选取借鉴了Hackel等人在2010年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里根据协方差矩阵特征值计算的特征（好拗口，哈哈哈）就比较多了，我截了张图：
+这三个特征值的选取借鉴了Hackel等人在2010年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里基于特征值 (eigenvalue)计算的特征 (feature)就比较多了↓：
 <br>
  ![](../assets/pic1_eigenvalue.png)
 <br>
@@ -70,7 +70,7 @@ $$
 ## 1.2 k-means 聚类
 每个点的特征向量归一化之后，就可以聚类了。根据上面的分析不难看出，理论上每一个边缘点的5个特征应该比非边缘的点要大，因此聚类完成之后，向量二范数更大的那一类就是边缘点。
 
-以下是边缘检测的结果，用了T-LESS dataset里面的模型：
+用T-LESS dataset里面的模型测试了下结果：
 <br>
 ![](../assets/result.png)
 <br>
@@ -84,3 +84,4 @@ Reference：
 - [1][Fast template matching and pose estimation in 3D point clouds](https://www.sciencedirect.com/science/article/abs/pii/S0097849319300081)
 - [2][Contour detection in unstructured 3D point clouds](https://ethz.ch/content/dam/ethz/special-interest/baug/igp/photogrammetry-remote-sensing-dam/documents/pdf/timo-jan-cvpr2016.pdf)
 - [3][Detecting Holes in Point Set Surfaces](https://cg.cs.uni-bonn.de/en/publications/paper-details/bendels-2006-detecting/)
+- [4][T-LESS](http://cmp.felk.cvut.cz/t-less/)
