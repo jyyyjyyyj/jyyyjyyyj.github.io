@@ -2,7 +2,7 @@
 layout: post
 title: Point Cloud template matching (1)
 subtitle: Edge Detection of Point Cloud.
-tags: [graphics, point cloud]
+tags: [point cloud, papers]
 private: true
 ---
 <head>
@@ -21,11 +21,11 @@ private: true
 
 我的研究课题里需要做点云配准相关的工作，查了一些文献之后决定先参考这篇19年发表在 Computers & Graphics 上的论文: *Fast template matching and pose estimation in 3D point clouds*。 这篇论文对我的课题有比较大的参考价值。
 
-导师建议我先复现一下看看效果，自己写一遍代码的话，对于论文的内容的了解也会加深。我的代码是用 VS2017 + PCL1.9.1写的，本来在自己的笔记本上写完代码想移到研究室的台式机上看看能不能跑得快一些，台式机上装了VS2019和最新的PCL1.12.0，结果放上去一运行就开始报各种匪夷所思的错误……与此同时用PCL1.9.1显示点云的时候VTK会弹出警告窗口，但是最新的PCL似乎解决了这个问题。PCL有很多现成的函数可以用，如果直接调用这些函数的话复现代码的难度会降低很多。
+导师建议我先复现一下看看效果，自己写一遍代码的话，对于论文的内容的了解也会加深。代码是用 VS2017 + PCL1.9.1写的，用PCL1.9.1显示点云的时候VTK会弹出警告窗口，但是如果用 VS2019 + PCL1.12.0的话似乎没有这个问题。
 
 这篇论文的算法可以分成三个部分，第一部分是提取边缘点，第二部分是从边缘点里提取点对，第三部分是基于点对来进行RANSAC匹配。
 
-论文中给出的流程图是这样的：
+论文中给出的流程图：
 <br>
 ![](../assets/workflow.png)
 
@@ -50,7 +50,7 @@ $$
 -  sphericity: $f_s(p) = \lambda_3/\lambda_1$
 -  surface variation: $f_s(p) = \lambda_3/(\lambda_1 + \lambda_2 + \lambda_3)$
  
-很明显，边缘点的这三个特征的值会明显高于非边缘点（脑补一下桌子边和桌面的区别），而且它们的值都介于0和1之间。
+很明显，边缘点的这三个特征的值会明显高于非边缘点（脑补了一下桌子边和桌面的区别），而且它们的值都介于0和1之间。
 
 这三个特征值的选取借鉴了Hackel等人在2010年发表的论文 *Contour detection in unstructured 3D point clouds*。Hackel的论文里根据协方差矩阵特征值计算的特征（好拗口，哈哈哈）就比较多了，我截了张图：
 <br>
@@ -70,7 +70,7 @@ $$
 ## 1.2 k-means 聚类
 每个点的特征向量归一化之后，就可以聚类了。根据上面的分析不难看出，理论上每一个边缘点的5个特征应该比非边缘的点要大，因此聚类完成之后，向量二范数更大的那一类就是边缘点。
 
-以下是边缘检测的结果，我用的是T-LESS dataset里面的模型：
+以下是边缘检测的结果，用了T-LESS dataset里面的模型：
 <br>
 ![](../assets/result.png)
 <br>
