@@ -37,7 +37,10 @@ private: true
 当我们计算某个点的几何特征的时候，比如该点的曲率，法向量，切向量等，要综合这个点和其周围点来考虑，因此在算特征之前要先给目标点圈定一个邻域，邻域半径的大小可以是点云平均密度的几倍，总之是不能太大也不能太小。
 
 假设我们要计算特征的那个点是 $p$，邻域的半径是$r$，其邻域中点的集合是$N_r(p)$，以此来计算一个加权协方差矩阵：
-$$\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-\overline{p})(p_i-\overline{p})^T$$
+
+$$
+\sum (p) = \frac{1}{|N_r(p)|}\sum_{p_i \in N_r(p)}h(||p_i-\overline{p}||)(p_i-\overline{p})(p_i-\overline{p})^T
+$$
 
 其中 $\overline{p}$是邻域的中点(medoid)，$h()$是一个高斯窗口函数，$|N_r(p)|$指的是集合里点的总数。
 
