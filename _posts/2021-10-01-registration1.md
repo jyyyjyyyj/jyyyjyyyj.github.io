@@ -3,7 +3,7 @@ layout: post
 title: Point Cloud template matching (1)
 subtitle: Edge Detection of Point Cloud.
 tags: [point cloud, papers]
-private: true
+#private: true
 ---
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
