@@ -47,7 +47,7 @@ void Get_node_at_specific_depth(int depth, const pcl::PointXYZ& pt, vector<int>&
 		//find the min and max bound of the current node
 		octree.getVoxelBounds(it, min_bound, max_bound);
 		//whether the point is within the bound
-		if (is_in_bounding_box(min_bound, max_bound, pt.getVector3fMap()))
+		if (Is_in_voxel(min_bound, max_bound, pt.getVector3fMap()))
 		{
 			//if ture, save indices of all points within this bound
 			octree.boxSearch(min_bound, max_bound, indices);
