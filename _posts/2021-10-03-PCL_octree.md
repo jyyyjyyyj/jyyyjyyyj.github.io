@@ -23,7 +23,7 @@ private: true
 
 第一步结束后，由于我们已经得到了目标节点的坐标范围，用`octree.boxSearch()`函数就可以找到这个范围内的所有点的索引了。
 
-使用以上几个PCL函数需要`#include <pcl/octree/octree_search.h>`。以下是我自己写的实现这个功能的函数:
+使用以上几个PCL函数需要`#include <pcl/octree/octree_search.h>`。以下是我自己写的实现这个功能的函数（仅针对非叶子节点，叶子节点可以直接用PCL自带的`voxelSearch()`函数。）:
 
 ```cpp
 
@@ -36,36 +36,34 @@ void Get_node_at_specific_depth(int depth, const pcl::PointXYZ& pt, vector<int>&
 	if (depth < 0 || depth > octree.getTreeDepth()) //if the depth exceed the limit
 	{
 		throw runtime_error("Depth exceeds the limit!");
-		return;
+		//return;
 	}
-	
 	//initialize the iterator at a certain depth
 	auto it = octree.fixed_depth_begin(depth);
 	while (it.getCurrentOctreeDepth() == depth)
 	{
-		if (it.isBranchNode()) 
+
+		Eigen::Vector3f min_bound, max_bound;
+		//find the min and max bound of the current node
+		octree.getVoxelBounds(it, min_bound, max_bound);
+		//whether the point is within the bound
+		if (is_in_bounding_box(min_bound, max_bound, pt.getVector3fMap()))
 		{
-			Eigen::Vector3f min_bound, max_bound;
-			//find the min and max bound of the current node
-			octree.getVoxelBounds(it, min_bound, max_bound);
-			//whether the point is within the bound
-			if (Is_in_bounding_box(min_bound, max_bound, pt.getVector3fMap()))
-			{
-				//if ture, save indices of all points within this bound
-				octree.boxSearch(min_bound, max_bound, indices);
-				return;
-			}
+			//if ture, save indices of all points within this bound
+			octree.boxSearch(min_bound, max_bound, indices);
+			return;
 		}
 		it++;
+
 	}
 
 	//if we did not find voxel that include this point
-	cout<<"Voxel not found!"<<endl;
+	cout << ("Voxel not found!") << endl;
 	return;
 }
 
 ```
-不过说实话，虽然我的确实现了这个功能，但是并不知道这是否是实现这个功能的最佳方法，可能后续还需要多查阅一些资料。不得不感叹学C++和PCL好难，我以为我掌握了，其实只看到了冰山的一角……
+虽然我的确实现了这个功能，但是并不知道以上否是实现这个功能的最佳方法，可能后续还需要多查阅一些资料。不得不感叹学C++和PCL好难，感觉自己永远无法掌握它们。
 
 Reference：
 - [1][PCL Octree Cheat Sheet](https://www.ridgesolutions.ie/index.php/2019/02/14/pcl-octree-cheat-sheet/)
