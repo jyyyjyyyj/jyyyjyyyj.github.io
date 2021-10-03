@@ -17,6 +17,6 @@ Hi, this is JYY, a first-year master student studying abroad in Japan.
 
 My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical\CT scanning and processes them. My hobbies are film photography and playing video games.
 
-This blog is used to record my research and daily life, such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming (I mainly write C++ and MATLAB), things related to my hobbies, etc. My programming skill is not very good at the moment, but hopefully it will get better as the number of blogs increases. The posts are in Chinese or English. 
+This blog is used to record my research and daily life, such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming (I mainly write C++ and MATLAB), things related to my hobbies, etc. My programming skill is not very good at the moment, but hopefully it will get better as the number of posts increases. The posts are in Chinese or English. 
 
 
