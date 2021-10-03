@@ -3,7 +3,7 @@ layout: post
 title: Finding points within a Branch node of an octree in PCL
 subtitle: 在PCL中查找八叉树非叶子节点所包含的点
 tags: [point cloud, programming]
-private: true
+#private: true
 ---
 
 以前用PCL写代码涉及到近邻搜索部分我都是用kd树来完成的，所以我对PCL里面八叉树的用法并不了解。最近正在看的一篇论文用八叉树来存储点云，并且涉及到了在八叉树特定深度的搜索，于是研究了一下如何用八叉树实现题目里的功能。
