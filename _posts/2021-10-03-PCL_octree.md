@@ -55,7 +55,7 @@ void Get_node_at_specific_depth(int depth, const pcl::PointXYZ& pt, vector<int>&
 	}
 
 	//if we did not find voxel that include this point
-	cout << ("Voxel not found!") << endl;
+	cout << "Voxel not found!" << endl;
 	return;
 }		
 
