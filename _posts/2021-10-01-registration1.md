@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Point cloud template matching (1)
-subtitle: 点云模板匹配(1)
+title: 点云模板匹配(1)
+subtitle: Point cloud template matching (1)
 tags: [point cloud, papers]
 #private: true
 ---
