@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Finding points within a branch node of an octree using PCL
-subtitle: 用PCL库函数查找八叉树非叶子节点所包含的点
+title: 用PCL库函数查找八叉树非叶子节点所包含的点
+subtitle: Finding points within a branch node of an octree using PCL
 tags: [point cloud, programming]
 #private: true
 ---
