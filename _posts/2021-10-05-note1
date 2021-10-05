@@ -1,9 +1,21 @@
 ---
+layout: post
 title: Get the intersection point of two lines in the 3D space
 subtitle: 计算三维空间中两条直线的交点
-tags: math
+tags: [math]
 private: true
 ---
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
 Today is the second day of the new semester! Hoping that I can make some good research progress in this semester.
 
@@ -11,7 +23,7 @@ This post is about how to get the intersection of two lines in the 3D space (not
 
 As is shown in the following image, let's say we have two lines $l_1$ and $l_2$, and our goal is to get their intersection point $p$. First of all we can select two points on each line, which are $A,B$ on $l_1$ and $C,D$ on $l_2$. After that, we draw three lines: $AG$ perpendicular to $l_2$, $CE$ parallel to $AB$ ($CE=AB$) and $EH$ perpendicular to $l_1$.
 
-![](../assets/line_1.png)
+![](../assets/line.png)
 It is easy to prove that $\Delta AGP$ and $\Delta EHC$ are similar triangles. Therefore, we can calculate $\frac{AP}{AB}$ by:
 
  $$\frac{AP}{AB} = \frac{AG}{EH} = \frac{CP}{CE} = \frac{area(\Delta ACD)}{area(\Delta ECD)} $$
