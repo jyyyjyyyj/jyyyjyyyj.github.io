@@ -3,8 +3,9 @@ layout: post
 title: Get the intersection point of two lines in the 3D space
 subtitle: 计算三维空间中两条直线的交点
 tags: [math]
-private: true
+#private: true
 ---
+
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     <script type="text/x-mathjax-config">
