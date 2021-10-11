@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Me
+title: About this blog
 ---
 
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
