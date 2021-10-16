@@ -3,7 +3,7 @@ layout: default
 title: About me
 ---
 
-<img class="profile-picture" src="{{site.baseurl}}/{{site.profile-picture}}">
+<img class="profile-picture" src="https://github.com/jyyyjyyyj/jyyyjyyyj.github.io/blob/master/assets/self-p.png">
 
 
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
