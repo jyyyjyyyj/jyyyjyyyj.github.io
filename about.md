@@ -3,7 +3,11 @@ layout: default
 title: About me
 ---
 
-<img align="right" width="150" height="198" src="assets/me.png">
+<p align="right">
+  <img width="150" height="198" src="assets/me.png">
+</p>
+
+#<img align="right" width="150" height="198" src="assets/me.png">
 
 
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
