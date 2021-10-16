@@ -3,7 +3,7 @@ layout: default
 title: About me
 ---
 
-<img align="right" width="150" height="198" src="assets/self-p.jpg">
+<img align="right" width="150" height="198" src="https://github.com/jyyyjyyyj/jyyyjyyyj.github.io/blob/master/assets/self-p.jpg">
 
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
 
