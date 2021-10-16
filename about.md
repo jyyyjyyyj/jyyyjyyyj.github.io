@@ -2,7 +2,7 @@
 layout: default
 title: About me
 ---
-
+<img align="right" src="https://github.com/jyyyjyyyj/jyyyjyyyj.github.io/blob/master/assets/me.png"/>
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
 
 我的研究方向是数字化工程 (digital engineering)，简单地来说就是通过光学/CT扫描获取物体的三维模型并进行处理。我的爱好是胶片摄影，以及打游戏。我最近正在玩的游戏有：街霸5（我的爱用角色是肯）、时空之轮（非常经典的JRPG！）还有饥荒。
