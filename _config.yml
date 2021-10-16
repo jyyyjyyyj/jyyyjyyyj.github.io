@@ -20,7 +20,7 @@ sass:
     sass_dir: css
 
 navbar:
- - name: "About this blog"
+ - name: "About me"
    link: "about"
  #- name: "Resume"
  #  absolute-link: "https://rahul-bothra.github.io/CV.pdf"
