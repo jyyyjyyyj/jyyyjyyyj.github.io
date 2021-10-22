@@ -2,7 +2,7 @@
 title: 点云模板匹配（2）
 subtitle: Point cloud template matching(2)
 tags: [point cloud, papers]
-private: true
+#private: true
 ---
 
 <head>
