@@ -17,6 +17,13 @@ tags: [point cloud, papers]
     </script>
 </head>
 
+<style>
+img{
+    width: 60%;
+    padding-left: 20%;
+}
+</style>
+
 
 这是关于前一段时间复现的点云模板匹配论文的第二篇博客（[第一篇在这里](https://jyyyjyyyj.github.io/2021-10-01-registration1/)）。这篇博客的内容是如何从点云中提取用于后续匹配的点对，以及变换矩阵(transformation matrix)的计算。
 整篇论文的流程图如下：
