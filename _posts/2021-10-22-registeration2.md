@@ -5,10 +5,23 @@ tags: [point cloud, papers]
 private: true
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
+
 这是关于前一段时间复现的点云模板匹配论文的第二篇博客（[第一篇在这里](https://jyyyjyyyj.github.io/2021-10-01-registration1/)）。这篇博客的内容是如何从点云中提取用于后续匹配的点对，以及变换矩阵(transformation matrix)的计算。
 整篇论文的流程图如下：
 <br>
-![](./images/workflow.png)
+![](../assets/workflow.png)
 <br>
 
 ## 1. 点对提取
@@ -41,7 +54,7 @@ $$P(p_j \in \Psi) = \frac{|\Psi|}{|N_\delta(p_i)|}$$
 
 ## 3. 变换矩阵
 点云模板匹配的最终目的就是计算出场景点到模板点的变换矩阵（为什么不是模板点到场景点呢，我想我应该会在下一篇博客里写到吧……），使模板的点能够很好地契合到场景点里。在这里我参考了Drost等人论文里的方法（他们有图，看上去更直观）：
-![](./images/transform.png)
+![](../assets/transform.png)
 
 图中红色的线是一对模板点对，绿色的线是场景点对，二者端点上的箭头是法向量。首先用两个变换矩阵$T_{s\rightarrow g}$以及$T_{m\rightarrow g}$，将两个法向量转到$x$轴上，并让$s_r$和$m_r$这两个点与坐标系原点重合。接下来再计算两个点对向量之间的夹角$\alpha$，以及对应的旋转矩阵$R_x(\alpha)$。由此一来，我们就可以知道由场景点到模板点的旋转矩阵为：
 $$T_{s\rightarrow m} = T_{s\rightarrow g}R_x(\alpha){T^{-1}_{m\rightarrow g}}$$
