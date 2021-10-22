@@ -17,12 +17,7 @@ tags: [point cloud, papers]
     </script>
 </head>
 
-<style>
-img{
-    width: 60%;
-    padding-left: 20%;
-}
-</style>
+
 
 
 这是关于前一段时间复现的点云模板匹配论文的第二篇博客（[第一篇在这里](https://jyyyjyyyj.github.io/2021-10-01-registration1/)）。这篇博客的内容是如何从点云中提取用于后续匹配的点对，以及变换矩阵(transformation matrix)的计算。
@@ -60,6 +55,13 @@ $$ P(p_j \in \Psi) = \frac{\vert \Psi \vert}{\vert N_\delta(p_i)\vert} $$
 - 点对所构成的线段长度 ：$\|p_i-p_j\|_2$
 - 点对向量与两个点处的边缘方向的夹角（在0到$\pi$之间）：$\angle(\overrightarrow{p_ip_j},\overrightarrow{tp_i})$，$\angle(\overrightarrow{p_ip_j},\overrightarrow{tp_j})$
 - $p_i$处的两个主曲率之比：$\kappa_2/\kappa_1$
+
+<style>
+img{
+    width: 60%;
+    padding-left: 20%;
+}
+</style>
 
 ## 3. 变换矩阵
 点云模板匹配的最终目的就是计算出场景点到模板点的变换矩阵（为什么不是模板点到场景点呢，我想我应该会在下一篇博客里写到吧……），使模板的点能够很好地契合到场景点里。在这里我参考了Drost等人论文里的方法（他们有图，看上去更直观）：
