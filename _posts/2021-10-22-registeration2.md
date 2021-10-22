@@ -33,7 +33,7 @@ $$n_1 >= \frac{ln(1-p_t)}{ln(1-P(p_i \in \Psi))}$$
 
 其中$P$代表的是一个点落在待匹配模型的边缘上的概率，我们可以用待匹配模型的边缘点和场景边缘点的数量之比来表示：
 
-$$P(p_i \in \Psi) = \frac{|\Psi|}{|\epsilon|}$$
+$$P(p_i \in \Psi) = \frac{\|\Psi\|}{\|\epsilon\|}$$
 
 $p_j$会在$p_i$的领域内提取，我们将这个邻域的直径设为$\delta$，也就是模板点云的包围盒直径，那么$p_j$同样属于$\Psi$的概率为：
 $$P(p_j \in \Psi) = \frac{|\Psi|}{|N_\delta(p_i)|}$$
