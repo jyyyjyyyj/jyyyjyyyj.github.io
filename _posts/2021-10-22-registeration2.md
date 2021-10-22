@@ -40,17 +40,17 @@ $p_j$会在$p_i$的领域内提取，我们将这个邻域的直径设为$\delta
 
 $$ P(p_j \in \Psi) = \frac{|\Psi|}{|N_\delta(p_i)|} $$
 
-那么可以用计算$n_1$的公式来计算$n_2$。这里需要注意的是，待匹配模型的边缘$\Psi$，和模板点云的边缘$\epsilon'$之间会有差异，因为场景点云对应的是三维扫描的结果，很有可能会存在噪声，而模板点云一般是由一个完整的CAD模型得来的。不过在噪声不是很大的情况下，我们可以假设$|\Psi| \approx |\epsilon'|$。（由于光学扫描很难扫到被遮蔽的部分，如果物体之间的遮蔽区域很大的话，二者的差距就会很离谱。）
+那么可以用计算$n_1$的公式来计算$n_2$。这里需要注意的是，待匹配模型的边缘$\Psi$，和模板点云的边缘$\epsilon'$之间会有差异，因为场景点云对应的是三维扫描的结果，很有可能会存在噪声，而模板点云一般是由一个完整的CAD模型得来的。不过在噪声不是很大的情况下，我们可以假设${|\Psi|} \approx {|\epsilon'|}$。（由于光学扫描很难扫到被遮蔽的部分，如果物体之间的遮蔽区域很大的话，二者的差距就会很离谱。）
 
 每个点对需要满足以下两个要求：
  - 点与点之间的距离 $d \in [0.5\delta,0.7\delta]$。其中$\delta$ 是点云包围盒的直径长度。
- - $p_i$的边缘方向（edge direction）与 $\overrightarrow{p_i p_j}$ 的夹角的余弦值的绝对值小于0.7：$|cos(\angle(\overrightarrow{t_{p_i}},\overrightarrow{p_i p_j}))|<0.7$。
+ - $p_i$的边缘方向（edge direction）与 $\overrightarrow{p_i p_j}$ 的夹角的余弦值的绝对值小于0.7：$ |cos(\angle(\overrightarrow{t_{p_i}},\overrightarrow{p_i p_j}))| <0.7 $。
  
 ## 2. 点对特征提取
 每个点对需要提取4个特征，经过离散化之后存入哈希表里以方便后续的查询。原文的作者采用了MurMurHash3这个哈希函数，可惜愚钝的我不太会用……于是就直接用C++里的unordered_map来实现这个功能了。
 
 这4个特征很容易计算，分别是：
-- 点对所构成的线段长度 ：$||p_i-p_j||_2$
+- 点对所构成的线段长度 ：$\|p_i-p_j\|_2$
 - 点对向量与两个点处的边缘方向的夹角（在0到$\pi$之间）：$\angle(\overrightarrow{p_ip_j},\overrightarrow{tp_i})$，$\angle(\overrightarrow{p_ip_j},\overrightarrow{tp_j})$
 - $p_i$处的两个主曲率之比：$\kappa_2/\kappa_1$
 
