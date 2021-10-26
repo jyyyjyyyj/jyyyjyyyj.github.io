@@ -4,7 +4,6 @@ title: About me
 ---
 
 
-<img class="profile-picture" src="{{site.baseurl}}/{{site.profile-picture}}">
 
 Hi, 我是JYY，一位留学日本的硕士一年级学生。
 
