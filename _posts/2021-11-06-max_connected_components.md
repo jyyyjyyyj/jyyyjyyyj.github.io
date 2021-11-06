@@ -78,8 +78,7 @@ int max_connented_components(Eigen::MatrixXi bitmap)
 }
 
 ```
-
-总得来说原理不难，leetcode上面也有一些关于DFS的题目和它高度相似，比如“水域大小” “统计封闭岛屿的数目”等等。
+原理并不难，leetcode上面也有一些关于DFS的题目和它高度相似，比如“水域大小” “统计封闭岛屿的数目”等等。
 
 
 
