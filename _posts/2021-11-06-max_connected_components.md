@@ -100,7 +100,7 @@ int max_connected_components(vector<vector<int>>& bitmap)
 	if(!w)
     		return 0;
 	h = bitmap[0].size();
-	//把访问过的标记为-1
+	
 	int maxsz = 0;
 	for(int i = 0; i <w;i++)
 	{
