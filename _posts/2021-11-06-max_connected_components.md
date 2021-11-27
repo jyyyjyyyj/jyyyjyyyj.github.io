@@ -114,6 +114,7 @@ int max_connected_components(vector<vector<int>>& bitmap)
 
 	return maxsz;
 }
+
 int dfs(int i, int j, vector<vector<int>>& bitmap)
 {
 	if(i >=w || i<0 || j >=h || j<0)
