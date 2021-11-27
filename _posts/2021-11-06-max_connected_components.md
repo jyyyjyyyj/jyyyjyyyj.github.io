@@ -87,7 +87,8 @@ int max_connented_components(Eigen::MatrixXi bitmap)
 
 <br>
 <br>
-### 2021-11-27更新：
+
+###2021-11-27更新：
 重新看了遍代码，觉得写得太啰嗦了，因为原来的代码里不能修改bitmap，所以新建了一个同样大小的矩阵label来存储访问情况，这样的话耗费的内存比较多。
 我重新写了个用vector存储bitmap的版本，bitmap里被访问过的元素直接设为0，这样的话会简洁很多：
 
