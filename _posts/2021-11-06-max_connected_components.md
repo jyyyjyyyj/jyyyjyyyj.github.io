@@ -93,6 +93,7 @@ int max_connented_components(Eigen::MatrixXi bitmap)
 我重新写了个用vector存储bitmap的版本，bitmap里被访问过的元素直接设为0，这样的话会简洁很多：
 
 ```C++
+int w,h;
 int max_connected_components(vector<vector<int>>& bitmap) 
 {
 	w=bitmap.size();
