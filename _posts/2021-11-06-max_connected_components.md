@@ -92,41 +92,42 @@ int max_connented_components(Eigen::MatrixXi bitmap)
 我重新写了个用vector存储bitmap的版本，bitmap里被访问过的元素直接设为0，这样的话会简洁很多：
 
 ```C++
-   int max_connected_components(vector<vector<int>>& bitmap) {
-        w=bitmap.size();
-        if(!w)
-            return 0;
-        h = bitmap[0].size();
-        //把访问过的标记为-1
-        int maxsz = 0;
-        for(int i = 0; i <w;i++)
-        {
-            for(int j = 0; j < h; j++)
-            {
-                if(bitmap[i][j])
-                {
-                    int sz = dfs(i,j,bitmap);
-                    maxsz = max(maxsz,sz);
-                }
-            }
-        }
+int max_connected_components(vector<vector<int>>& bitmap) 
+{
+	w=bitmap.size();
+	if(!w)
+    		return 0;
+	h = bitmap[0].size();
+	//把访问过的标记为-1
+	int maxsz = 0;
+	for(int i = 0; i <w;i++)
+	{
+    		for(int j = 0; j < h; j++)
+    		{
+			if(bitmap[i][j])
+			{
+	   			int sz = dfs(i,j,bitmap);
+	    			maxsz = max(maxsz,sz);
+			}
+    		}
+	}
 
-        return maxsz;
-    }
-    int dfs(int i, int j, vector<vector<int>>& bitmap)
-    {
-        if(i >=w || i<0 || j >=h || j<0)
-            return 0;
-        else if(bitmap[i][j] == 1)
-        {
-            bitmap[i][j] = 0; //visited
-            return (1+dfs(i-1,j,bitmap)+
-            dfs(i+1,j,bitmap)+
-            dfs(i,j-1,bitmap)+
-            dfs(i,j+1,bitmap));
-        }
-        return 0;
-   }
+	return maxsz;
+}
+int dfs(int i, int j, vector<vector<int>>& bitmap)
+{
+	if(i >=w || i<0 || j >=h || j<0)
+    		return 0;
+	else if(bitmap[i][j] == 1)
+	{
+    		bitmap[i][j] = 0; //visited
+    		return (1+dfs(i-1,j,bitmap)+
+    		dfs(i+1,j,bitmap)+
+    		dfs(i,j-1,bitmap)+
+    		dfs(i,j+1,bitmap));
+	}
+	return 0;
+}
 ```
 
 ## Reference
