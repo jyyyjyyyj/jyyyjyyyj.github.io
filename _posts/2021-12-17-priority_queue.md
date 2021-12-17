@@ -7,7 +7,7 @@ tags: [code]
 
 距离有了leetcode排名已经过去了一个多月，这一个多月里我又做了一百道题，排名变成了一个月前的1/2，每天吃完早饭（没错，终于不再是半夜睡觉中午起床了）之后的第一件事就是上号做几道题。然而依旧觉得自己的水平没怎么提升……
 
-![enter description here](./images/img2.png)
+![enter description here](../assets/2021-12-17/img2.png)
 
 于是想多做一些困难题，赫赫，困难题果真是很困难呢！其中很多题都涉及到了优先队列(priority_queue)，所以本篇博客的内容就是优先队列。
 
