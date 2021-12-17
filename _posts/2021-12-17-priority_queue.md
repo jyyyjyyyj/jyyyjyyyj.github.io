@@ -15,10 +15,13 @@ tags: [code]
 
 ### 优先队列的定义
 大顶堆：`priority_queue<int> queue;`
+
 这是最简单的一种队列的定义，表示值越大的元素优先级越高。如果想要实现小顶堆（值越小优先级越大），那么可以这样定义：
+
 `priority_queue<int,vector<int>,greater<int>> queue;`
 
 其中第一个参数为元素的类型，第二个参数为存放元素的容器类型（必须是数组类型的容器，比如vector，不可以用list），第三个参数为比较函数。元素类型和比较函数可以自己定义。需要注意的是，如果元素类型是自定义的，那么后面的两个参数也必须自定义好，不然C++不知道以什么方式来排序。以下是我从某个网站上找来的一个自定义比较函数示例：
+
 ```c++
 class mycomparison
 {
@@ -39,11 +42,13 @@ public:
 priority_queue<int,vector<int>,mycomparison> q1;    //大顶堆
 priority_queue<int,vector<int>,mycomparison> q2(mycomparison(true));  //小顶堆
 ```
+
 上面这段函数可以通过改变`reverse`的值来改变元素的排列方式。需要注意的是，优先队列中用到的进行比较的操作符是"<"，因此在自定义比较函数的时候，可以写成`bool operator()`或`bool operator<`，但是不可以写成`bool operator>`。
 
 
 ### 优先队列的操作
 队列中可以使用的函数，在优先队列里都可以使用。优先队列的常用函数包括：
+
 ```c++
 queue.size();     //返回元素的数量
 queue.push(x);    //存入一个元素
