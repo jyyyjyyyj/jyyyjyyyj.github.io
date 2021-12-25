@@ -109,6 +109,56 @@ public:
 };
 ```
 
+-----
+#### 2021.12.25补充
+
+补充leetcode第451题。题目的内容是给定一个字符串，将其中的字符按照出现频率进行降序排列并输出。例如，如果输入的字符串是"tree"，那么输出应该是"eetr"或"eert"。
+
+这道题可以采用哈希表+优先队列来解。首先遍历字符串将字符存入哈希表统计其出现的次数，然后再使用优先队列（大顶堆）根据出现频率对字符进行排序，最后取出优先队列中的输出。
+
+光靠文字有点解释不清楚，以下是C++代码：
+
+```c++
+class Solution {
+public:
+    string frequencySort(string s) {
+        //hashmap+priority_queue
+        int n = s.size();
+        unordered_map<char,int> map;
+        priority_queue<pair<char,int>,vector<pair<char,int>>,func> q;
+        for(char it: s)
+        {
+            map[it]++; //对每个字符出现的频率进行统计
+        }
+        for(auto& it:map)
+        {
+            q.push(it);//存入大顶堆
+        }
+        string rtn;
+        while(!q.empty())
+        {
+            char c = q.top().first;
+            int i = q.top().second;
+            for(int j = 0; j < i; j++)
+            {
+                rtn +=c; //按照顺序取出
+            }
+            q.pop();
+        }
+        return rtn;
+    }
+
+    //大顶堆
+    struct func
+    {
+        bool operator() (pair<char,int> a, pair<char,int> b) 
+        {
+            return a.second < b.second; 
+        }
+    };
+};
+```
+
 
 ### Reference
 - [参考1](http://www.cplusplus.com/reference/queue/priority_queue/priority_queue/)
