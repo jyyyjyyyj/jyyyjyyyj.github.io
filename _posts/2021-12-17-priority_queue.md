@@ -47,7 +47,7 @@ priority_queue<int,vector<int>,mycomparison> q2(mycomparison(true));  //小顶�
 
 
 ### 优先队列的操作
-队列中可以使用的函数，在优先队列里都可以使用。优先队列的常用函数包括：
+优先队列的常用函数包括：
 
 ```c++
 queue.size();     //返回元素的数量
