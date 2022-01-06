@@ -5,7 +5,7 @@ title: About me
 
 
 
-Hi, 我是JYY，一位留学日本的硕士一年级学生。
+Hi, 我是Ji，一位留学日本的硕士一年级学生。
 
 我的研究方向是数字化工程 (digital engineering)，简单地来说就是通过光学/CT扫描获取物体的三维模型并进行处理。我的爱好是胶片摄影，以及打游戏。我最近正在玩的游戏有：街霸5（我的爱用角色是肯）和饥荒。
 
@@ -15,7 +15,7 @@ Hi, 我是JYY，一位留学日本的硕士一年级学生。
 <br>
 <br>
 
-Hi, this is JYY, a first-year master student studying abroad in Japan. 
+Hi, this is Ji, a first-year master student studying abroad in Japan. 
 
 My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical/ CT scanning and processes them. My hobbies are film photography and video games. The games I've been playing recently include: Street Fighter V (I am a Ken player) and Don't Starve.
 
