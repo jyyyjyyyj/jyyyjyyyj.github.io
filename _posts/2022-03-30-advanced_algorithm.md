@@ -1,7 +1,7 @@
 ---
 layout: post
 title: LeetBook《高级算法》题解
-subtitle: Answers to LeeBook "Advanced Algorithm"
+subtitle: Answers to LeetBook "Advanced Algorithm"
 tags: [code]
 ---
 
