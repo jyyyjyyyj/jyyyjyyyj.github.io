@@ -15,7 +15,7 @@ Hi, 我是Ji，一位留学日本的硕士二年级学生。
 <br>
 <br>
 
-Hi, this is Ji, a first-year master student studying abroad in Japan. 
+Hi, this is Ji, a second-year master student studying abroad in Japan. 
 
 My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical/ CT scanning and processes them. My hobbies are film photography and video games. 
 
