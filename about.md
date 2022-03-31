@@ -5,11 +5,11 @@ title: About me
 
 
 
-Hi, 我是Ji，一位留学日本的硕士一年级学生。
+Hi, 我是Ji，一位留学日本的硕士二年级学生。
 
-我的研究方向是数字化工程 (digital engineering)，简单地来说就是通过光学/CT扫描获取物体的三维模型并进行处理。我的爱好是胶片摄影，以及打游戏。我最近正在玩的游戏有：街霸5（我的爱用角色是肯）和饥荒。
+我的研究方向是数字化工程 (digital engineering)，简单地来说就是通过光学/CT扫描获取物体的三维模型并进行处理。我的爱好是胶片摄影，以及打游戏。
 
-我的博客用来记录学习和生活，比如复现的paper，图形学、图像处理、光学扫描、CT扫描以及编程（我主要写C++和MATLAB，使用过PCL/OpenGL/OpenCV/Unity）上的知识，与我的爱好相关的内容等等。目前我的代码水平一般，希望它能随着博客数量的增加变得越来越好。博客的内容可能是中文的，也可能是英文的。
+我的博客用来记录学习和生活，比如复现的paper，图形学、图像处理、光学扫描、CT扫描以及编程（我主要写C++，使用过PCL/OpenGL/OpenCV/Unity，最近正在学习Python）上的知识，与我的爱好相关的内容等等。目前我的代码水平一般，希望它能随着博客数量的增加变得越来越好。博客的内容可能是中文的，也可能是英文的。
 
 
 <br>
@@ -17,8 +17,8 @@ Hi, 我是Ji，一位留学日本的硕士一年级学生。
 
 Hi, this is Ji, a first-year master student studying abroad in Japan. 
 
-My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical/ CT scanning and processes them. My hobbies are film photography and video games. The games I've been playing recently include: Street Fighter V (I am a Ken player) and Don't Starve.
+My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical/ CT scanning and processes them. My hobbies are film photography and video games. 
 
-This blog is used to record my research and daily life, such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming (I write C++ and MATLAB, and I have the experience of using PCL/ OpenGL/ OpenCV/ Unity), things related to my hobbies, etc. My programming skill is not very good at the moment, but hopefully it will get better as the number of posts increases. The posts are in Chinese or English. 
+This blog is used to record my research and daily life, such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming (I write C++, and I have the experience of using PCL/ OpenGL/ OpenCV/ Unity. I am now learning to write Python.), things related to my hobbies, etc. My programming skill is not very good at the moment, but hopefully it will get better as the number of posts increases. The posts are in Chinese or English. 
 
 
