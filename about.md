@@ -9,7 +9,7 @@ Hi, 我是Ji，一位留学日本的硕士二年级学生。
 
 我的研究方向是数字化工程 (digital engineering)，简单地来说就是通过光学/CT扫描获取物体的三维模型并进行处理。我的爱好是胶片摄影，以及打游戏。
 
-我的博客用来记录学习和生活，比如复现的paper，图形学、图像处理、光学扫描、CT扫描以及编程（我主要写C++，使用过PCL/OpenGL/OpenCV/Unity，最近正在学习Python）上的知识，与我的爱好相关的内容等等。目前我的代码水平一般，希望它能随着博客数量的增加变得越来越好。
+我的博客用来记录学习和生活，主要是一些和我的研究课题相关的话题，LeetCode题解等等。我主要写C++，使用过PCL/OpenGL/OpenCV/Unity，最近正在学习Python。我毕业后想要进入游戏行业，所以最近也在自学一些与游戏引擎相关的知识。
 
 
 <br>
@@ -19,6 +19,5 @@ Hi, this is Ji, a second-year master student studying abroad in Japan.
 
 My research interest is digital engineering. Simply speaking, it obtains 3d models of real-world objects through optical/ CT scanning and processes them. My hobbies are film photography and video games. 
 
-This blog is used to record my research and daily life, such as papers that I reproduced, knowledge of computer graphics, image processing, optical scanning, CT scanning and programming (I write C++, and I have the experience of using PCL/ OpenGL/ OpenCV/ Unity. I am now learning to write Python.), things related to my hobbies, etc. My programming skill is not very good at the moment, but hopefully it will get better as the number of posts increases. 
-
+My blog is used to record my study and life. The blogs are mainly about topics related to my research, answers to LeetCode problems, etc. I write C++ and have the experience of using PCL/OpenGL/OpenCV/Unity. I am currently learning Python. I want to become a game developer after graduation, so I've been learning about game engines by myself.
 
