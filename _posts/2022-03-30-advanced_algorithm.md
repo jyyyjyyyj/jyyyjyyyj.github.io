@@ -248,6 +248,83 @@ public:
 
 ```
 
+### NO. 315 计算右侧小于当前元素的个数
+
+**题目描述:**
+
+给你一个整数数组 nums ，按要求返回一个新数组 counts 。数组 counts 有该性质： counts[i] 的值是  nums[i] 右侧小于 nums[i] 的元素的数量。
+
+**题解：**
+
+这道题和剑指Offer第51题的[数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)很像，这道题可以用归并排序来求解，在这篇[总结排序和查找算法的博客](https://jyyyjyyyj.github.io/2022-01-25-sort/)中有提到。在数组中，如果前面的数字大于后面的数字，则这两个数字就组成了一个逆序对。而这道题的要求其实就是统计逆序对在整个数组中的分布。
+
+将剑指Offer51的代码稍作修改就可以得到这道题的题解了，需要注意的是，要建一个数组来保存排序后每个数字在原数组中的位置：
+
+```c++
+class Solution {
+public:
+    vector<int> index;
+    vector<int> count;
+    vector<int> countSmaller(vector<int>& nums) {
+        int n = nums.size();
+        count.resize(n);
+        index.resize(n);
+        iota(index.begin(),index.begin()+n,0);
+        merge_sort(nums, 0, n-1);
+        return count;
+    }
+    
+    void merge_sort(vector<int>& nums,int st, int ed) {
+        if(ed-st == 1 && nums[index[st]] > nums[index[ed]])
+        {
+            int tmp = index[st];
+            count[index[st]]++;
+            index[st] = index[ed];
+            index[ed] = tmp;
+            return;
+        }
+        if(ed -st <= 1)
+            return;
+        int mid = st + (ed-st+1)/2;
+        merge_sort(nums,st,mid);
+        merge_sort(nums,mid+1,ed);
+        merge(nums,st,ed);
+    }
+    
+    void merge(vector<int>& nums,int st, int ed) {
+        
+        int mid = st + (ed-st+1)/2;
+        vector<int> tmp(ed-st+1,0);
+        int i1 = st;
+        int i2 = mid+1;
+        int i3 = 0;
+        while(i1 <= mid && i2 <= ed)
+        {
+            if(nums[index[i1]] <= nums[index[i2]]) //在此之前的都是逆序对
+            {
+                count[index[i1]] += (i2-mid-1);
+                tmp[i3++] = index[i1++];
+            }
+            else
+            {
+                tmp[i3++] = index[i2++];
+            }
+        }
+
+        while(i1 <= mid)
+        {
+            count[index[i1]] += (ed-mid);
+            tmp[i3++] = index[i1++];
+        }
+        while(i2 <= ed)
+        {
+            tmp[i3++] = index[i2++];
+        }
+
+        copy(tmp.begin(),tmp.end(), index.begin() + st);
+    }
+};
+```
 
 -----
 待续
