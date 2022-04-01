@@ -20,18 +20,6 @@ tags: [code]
 
 （说起来，我想做个目录方便以后查阅，不过目前还没搞懂该怎么做。）
 
-目前所记录的题目：
-
-- [生命游戏](https://leetcode-cn.com/problems/game-of-life/)
-  
-- [滑动窗口的最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
-  
-- [二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
-
-- [计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)
-
-- [单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
-
 
 ## 数组和字符串
 
