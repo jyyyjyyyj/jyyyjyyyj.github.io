@@ -20,6 +20,17 @@ tags: [code]
 
 （说起来，我想做个目录方便以后查阅，不过目前还没搞懂该怎么做。）
 
+目前包含的题目有这些：
+
+- [生命游戏](https://leetcode-cn.com/problems/game-of-life/)
+  
+- [滑动窗口的最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+  
+- [二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+
+- [计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)
+
+- [单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
 
 ## 数组和字符串
 
@@ -350,7 +361,7 @@ public:
 ```c++
 class Solution {
 public:
-    int dirs[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    int dirs[4][2];
     int m,n;
     vector<string> rtn;
     //字典树的数据结构，其中children用哈希表防止有重复的字符
@@ -427,6 +438,7 @@ public:
 };
 ```
 
+其中，dirs[4][2]存储的是四个dfs搜索的上下左右四个方向，由于连打两个大括号会导致jekyll报错，所以我把其定义部分给删了。
 
 -----
 待续
