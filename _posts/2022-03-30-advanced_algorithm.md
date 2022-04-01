@@ -20,6 +20,19 @@ tags: [code]
 
 （说起来，我想做个目录方便以后查阅，不过目前还没搞懂该怎么做。）
 
+目前所记录的题目：
+
+- [生命游戏](https://leetcode-cn.com/problems/game-of-life/)
+  
+- [滑动窗口的最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+  
+- [二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+
+- [计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)
+
+- [单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
+
+
 ## 数组和字符串
 
 
@@ -325,6 +338,109 @@ public:
     }
 };
 ```
+## 回溯算法
+
+### NO. 212 单词搜索 II
+
+**题目描述：**
+给定一个 m x n 二维字符网格 board 和一个单词（字符串）列表 words， 返回所有二维网格上的单词 。
+
+单词必须按照字母顺序，通过 相邻的单元格 内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。
+
+一个例子：
+
+![enter description here](../assets/2022-03-30/board1.png)
+
+我们可以在这个数组中找到"eat"和"oath"两个单词。
+
+**题解：**
+
+这道题就是要在字符数组中寻找连着的字符来构成给定的单词。一开始我想用最传统的dfs来做，但是超时了（困难题哪是那么容易就能让你做出来的）。看了官方题解之后发现原来可以用字典树，心里有点郁闷，因为我曾经写过一篇[有关字典树的博客](https://jyyyjyyyj.github.io/2021-12-30-Trie/)，却没想到用它。。。
+
+我们可以将待查找的字符串全部存入字典树，然后再采用dfs+回溯来遍历整个字符数组。由于字典树里存储了所有单词，所以只要遍历一次就可以获取所有答案了。
+
+代码：
+
+```c++
+class Solution {
+public:
+    int dirs[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    int m,n;
+    vector<string> rtn;
+    //字典树的数据结构，其中children用哈希表防止有重复的字符
+    struct TrieNode 
+    {
+        string word;
+        unordered_map<char,TrieNode *> children;
+        TrieNode() 
+        {
+            this->word = "";
+        }   
+    };
+    vector<string> findWords(vector<vector<char>> & board, vector<string> & words) {
+        m = board.size();
+        n = board[0].size();
+        TrieNode * root = new TrieNode();
+
+        for (auto & word: words){
+            insertTrie(root,word);
+        }
+
+        for (int i = 0; i < board.size(); ++i) {
+            for (int j = 0; j < board[0].size(); ++j) {
+                dfs(board, i, j, root);
+            }
+        }        
+
+        return rtn;     
+    }
+
+    void dfs(vector<vector<char>>& board, int x, int y, TrieNode * root) 
+    {
+        if(x < 0 || y < 0 || x >= m || y >= n|| board[x][y] == '#')
+            return;
+        char ch = board[x][y];
+        //没有这个词        
+        if (!root->children.count(ch)) {
+            return;
+        }
+        root = root->children[ch];
+        //找到了一个单词
+        if (root->word.size() > 0)
+        {
+            rtn.push_back(root->word);
+            //已经找到这个单词了，就把他从字典树里删掉
+            root->word = "";
+        }
+        
+        //设为已访问
+        board[x][y] = '#';
+        for (int i = 0; i < 4; ++i) 
+        {
+            int nx = x + dirs[i][0];
+            int ny = y + dirs[i][1];
+            dfs(board, nx, ny, root);
+        }
+        //回溯
+        board[x][y] = ch;
+        return;
+    }
+    
+    //向字典树中插入一个单词
+    void insertTrie(TrieNode * root,const string & word) {
+        TrieNode * node = root;
+        for (auto c : word){
+            //如果子节点里没有字符c，则新建一个
+            if (!node->children.count(c)) {
+                node->children[c] = new TrieNode();
+            }
+            node = node->children[c];
+        }
+        node->word = word;
+    }
+};
+```
+
 
 -----
 待续
