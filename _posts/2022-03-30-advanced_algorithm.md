@@ -534,7 +534,7 @@ public:
 
 同样的创建一个哈希表dict来存储wordDict里的单词（也可以用效率更高的字典树，但是我懒得写了），那么状态转移方程可以写为:
 
-$$dp[i] = dp[j] \And dict.count(s.substr(j+1,i-j)), 0 \leq j \leq i$$
+$$dp[i] = dp[j] \And dict.count(s.substr(j+1,i-j)), 0 \leq j < i$$
 
 代码如下：
 
