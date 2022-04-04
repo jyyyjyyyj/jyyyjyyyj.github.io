@@ -32,6 +32,9 @@ tags: [code]
 
 - [单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/)
 
+- [单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
+
+
 ## 数组和字符串
 
 
@@ -440,6 +443,155 @@ public:
 
 其中，dirs[4][2]存储的是四个dfs搜索的上下左右四个方向，由于连打两个大括号会导致jekyll报错，所以我把其定义部分给删了。
 
------
+
+
+## 动态规划
+
+### NO.140 单词拆分 II
+
+**题目：**
+给定一个字符串 s 和一个字符串字典 wordDict ，在字符串 s 中增加空格来构建一个句子，使得句子中所有的单词都在词典中。以任意顺序 返回所有这些可能的句子。
+
+注意：词典中的同一个单词可能在分段中被重复使用多次。
+
+一个例子：
+
+输入:s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+
+输出:["cats and dog","cat sand dog"]
+
+
+
+**题解：**
+
+虽然这道题被分到了动态规划类里面，但是看到这道题我的第一反应是用回溯算法来做。以下是采用回溯算法的题解：
+
+
+**1. 回溯算法：**
+
+用回溯算法结题的思路和上一题 单词搜索II 有点类似。首先将wordDict里面的所有字符串都存到哈希表里（如果想要更高效的话，也可以像上一题一样采用字典树来存储），然后从0下标开始，在s中截取不同长度的子串。如果wordDict里面包含这个子串，那么就暂时截去子串，然后对s中剩余的部分进行相同的操作，直到遍历完s中所有的字符。
+
+此外还可以添加一个剪枝的操作。首先获取wordDict中字符串的最大长度maxlen，然后在截取s子字符串的时候限制子字符串长度不可以超过maxlen，这样能节约不少时间。
+
+以下是代码：
+
+```c++
+class Solution {
+public:
+    unordered_map<string,int> dict;
+    vector<string> rtn;
+    int maxlen;
+	
+    vector<string> wordBreak(string s, vector<string>& wordDict) {
+        //单词的最大长度
+        maxlen = 0;
+        for(string it: wordDict)
+        {
+            //存入哈希表，当然也可以构建字典树
+            dict[it] = 1;
+            int sz = it.size();
+            maxlen = max(maxlen,sz);
+        }
+        string cur;
+        dfs(s,cur,0);
+        return rtn;
+    }
+
+    void dfs(string s, string cur, int st)
+    {
+        if(st == s.size())
+        {
+            //如果正好遍历到了s的末尾，说明cur是一个符合要求的答案，将其存入数组rtn
+            int len = cur.size();
+            cur = cur.substr(0,len-1);
+            rtn.push_back(cur);
+            return;
+        }
+
+        for(int ed = st; ed < s.size() && ed < (st + maxlen);ed++)
+        {
+            //截取不同长度的子串
+            string tmp = s.substr(st,ed-st+1);
+            if(dict[tmp] == 1)
+            {
+                //如果子串在worddict内，进入下一步
+                string cur2 = cur;
+                cur2 = cur2 + tmp;
+                cur2 = cur2 + " ";
+                dfs(s,cur2,ed+1);
+            }
+            //回溯
+        }
+    }
+};
+```
+
+**动态规划：**
+
+我去查了查这道题的简化版 NO.139 单词拆分。简化版中的题目只需要判断字符串s是否可以拆分，而不需要给出所有的拆分方案。
+
+在139题中，假设s长度为n，可以用长为n的数组dp来记录下表范围为0到i的子串是否可以被拆分，如果可以，那么`dp[i] = true`，反之为`false`。
+
+同样的创建一个哈希表dict来存储wordDict里的单词（也可以用效率更高的字典树，但是我懒得写了），那么状态转移方程可以写为:
+
+$$dp[i] = dp[j] \And dict.count(s.substr(j,i-j+1)), 0 \leq j \leq i$$
+
+代码如下：
+
+```c++
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        //前缀树？
+        int sz = s.size();
+        vector<bool> dp(sz,false);
+        unordered_map<string,int> map;
+        int maxlen = 0;
+        for(string it:wordDict)
+        {
+            map[it]++;
+            int len = it.size();
+            maxlen = max(maxlen,len);
+        }
+        //cout<<maxlen<<endl;
+        if(map.count(s))
+            return true;
+            
+        //首先寻找被拆分出的第一个单词
+        for(int i = 1; i <= s.size();i++)
+        {
+            string tmp = s.substr(0,i);
+            if(map.count(tmp))
+            {
+                dp[i-1] = true;
+            }
+        }
+        int i = 0;
+        while(i<sz && dp[i] == false)
+            i++; 
+        if(i==sz)
+            return false;
+        for(; i < sz;i++)
+        {
+            if(!dp[i])
+            {
+                int cur = max(0,i-maxlen);
+                for(int j = i-1; j >= cur;j--)
+                {
+                    string tmp = s.substr(j+1,i-j);
+                    dp[i] = dp[j] && map.count(tmp);
+                    if(dp[i])
+                        break;
+                }
+            }
+        }
+        return dp[sz-1];
+    }
+};
+```
+
+如果想在139题的基础上完成140题的题解，那么就要在dp[i]为true的时候记录下对应的拆分方案。
+
+----
 待续
     
