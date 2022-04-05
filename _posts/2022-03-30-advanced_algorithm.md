@@ -47,6 +47,10 @@ tags: [code]
 
 - [单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
 
+- [数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/)
+
+- [最大数](https://leetcode-cn.com/problems/largest-number/)
+
 
 ## 数组和字符串
 
@@ -605,6 +609,130 @@ public:
 
 如果想在139题的基础上完成140题的题解，那么就要在dp[i]为true的时候记录下对应的拆分方案。
 
+## 设计问题
+
+### NO. 295 数据流的中位数
+
+**题目：**
+
+中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。
+
+例如，
+
+[2,3,4] 的中位数是 3
+
+[2,3] 的中位数是 (2 + 3) / 2 = 2.5
+
+设计一个支持以下两种操作的数据结构：
+
+- void addNum(int num) - 从数据流中添加一个整数到数据结构中。
+  
+- double findMedian() - 返回目前所有元素的中位数。
+
+
+**题解：**
+
+这道题可以用优先队列来解。用两个有点队列queMax和queMin来存储输入的数字，其中queMax是小顶堆，存储较大的那一半数字，而queMin是大顶堆，存储较小的那一半，这样能够保证queMax和queMin的顶端一直都是排序在最中间的两个数。（这种做法似乎在很多题目中都出现过）
+
+如果两个有些队列都为空，那么数据率先进入queMax。如果输入的数据大于queMax的顶端（也就是最小值），那么将其push进queMax，反之push到queMin里。
+
+此外，为了保证两个队列的长度差不超过1，每输入一个新的数字，就要检查一下长度，如果其中某一个队列过长，就将其顶端数字push到另一个队列中。
+
+在输出中位数时，如果两个队列长度相等，那么返回二者顶端元素的均值，否则返回长度较长者的顶端元素。
+
+以下是代码：
+
+```c++
+class MedianFinder {
+public:
+    priority_queue<int, vector<int>, less<int>> queMin;
+    priority_queue<int, vector<int>, greater<int>> queMax;
+
+    MedianFinder() 
+    {
+
+    }
+
+    //queMin 存储较小的那一半数字，queMax存储较大的一半
+    void addNum(int num) {
+        if (queMin.empty() || num <= queMin.top()) {
+            queMin.push(num);
+            if (queMax.size() + 1 < queMin.size()) {
+                queMax.push(queMin.top());
+                queMin.pop();
+            }
+        } else {
+            queMax.push(num);
+            if (queMax.size() > queMin.size()) {
+                queMin.push(queMax.top());
+                queMax.pop();
+            }
+        }
+    }
+
+    double findMedian() {
+        if (queMin.size() > queMax.size()) {
+            return queMin.top();
+        }
+        return (queMin.top() + queMax.top()) / 2.0;
+    }
+};
+
+```
+
+
+## 数学
+
+### NO. 179 最大数
+
+**题目：**
+
+给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+
+注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+
+示例：
+
+输入：nums = [10,2]   输出："210"
+
+**题解：**
+
+这道题我一开始没想出来做法，但是看了题解之后发现其实挺简单的……首先为了避免溢出，需要将输入的整数全部转为字符串存入一个vector中。由于C++能够对字符串进行排序，比如"21" > "12"，我们可以自定义一个vector排序函数，对于任意两个字符串a和b，如果a+b > b+a，就将a排在b的前面。最后将排序完成的字符串数组按照顺序输出即可。
+
+代码：
+
+```c++
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        //将整数数组转换为字符串数组，排序后拼接
+        vector<string> nums_new;
+        for(int it: nums)
+        {
+            nums_new.push_back(to_string(it));
+        }
+        sort(nums_new.begin(),nums_new.end(),comp);
+        string rtn;
+        for(string it: nums_new)
+            rtn += it;
+
+        if(rtn[0] == '0')
+            return "0";
+        return rtn;
+
+    }
+	
+	//排序函数
+    static bool comp (const string& a, const string& b)
+    {
+        return (a+b) > (b+a);
+    }
+};
+```
+
 ----
 待续
+
+
+
     
