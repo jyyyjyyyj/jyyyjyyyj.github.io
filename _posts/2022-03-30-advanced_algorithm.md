@@ -51,6 +51,7 @@ tags: [code]
 
 - [最大数](https://leetcode-cn.com/problems/largest-number/)
 
+- [根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height/)
 
 ## 数组和字符串
 
@@ -726,6 +727,61 @@ public:
     static bool comp (const string& a, const string& b)
     {
         return (a+b) > (b+a);
+    }
+};
+```
+
+
+## 其他
+
+### NO. 406 根据身高重建队列
+
+**题目：**
+
+假设有打乱顺序的一群人站成一个队列，数组 people 表示队列中一些人的属性（不一定按顺序）。每个 people[i] = [hi, ki] 表示第 i 个人的身高为 hi ，前面 正好 有 ki 个身高大于或等于 hi 的人。
+
+请你重新构造并返回输入数组 people 所表示的队列。返回的队列应该格式化为数组 queue ，其中 queue[j] = [hj, kj] 是队列中第 j 个人的属性（queue[0] 是排在队列前面的人）。
+
+**题解：**
+
+这道题难度是中等，但是我完全不会，看了官方题解才知道怎么做（感到智熄）。感觉这道题和[计算右侧小于当前元素的个数](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)有些类似，一个是根据右侧小于当前元素的个数推断出原来的顺序，另一个则相反。后者可以用插入排序的方法来解决。
+
+要解决这道题，首先对people中的数组按照身高从小到大进行排序，如果有两个人身高相同，那么将hi较大的那个排在前面。
+
+这样一来，排在前面的元素对应着矮个子的人。对于排序后的people[0]，由于不会有人比他更矮了，所以其对应的hi值就是排在他前面的人的个数。此时我们新建一个与people大小相同的数组rtn存放结果，从rtn.begin()开始数hi个位置，那么people[0]应该被放在第hi+1个空位置上。对于people[0]之后的元素的操作也是相同的，都是将其放在第hi+1个空位置上。对于身高相同的两个人，其中必有一个人的hi值较大，我们在对people进行排序时，把hi较大的那个人排在前面，这样在遍历排序后的people时，可以先预留出足够的位置。
+
+代码如下：
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+        //按照身高从小到大排序，如果有人身高相同，那么ki较大的那一方放在前面
+        //因为当身高相同时，ki较大的那一方应该在原序列中靠后，那么应该先对其进行排序
+        sort(people.begin(),people.end(),comp);
+        int n = people.size();
+        vector<vector<int>> rtn(n);
+        for(int i = 0; i < n; i++)
+        {
+            int k = people[i][1];
+            int j = -1;
+            while(k>=0 && j < n)
+            {
+                j++;
+                if(rtn[j].empty())
+                    k--;
+            }
+            rtn[j] = people[i];
+        }
+        return rtn;
+
+    }
+
+    static bool comp(vector<int> a, vector<int> b)
+    {
+        if(a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]))
+            return true;
+        return false;
     }
 };
 ```
