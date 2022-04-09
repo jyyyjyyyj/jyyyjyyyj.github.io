@@ -460,5 +460,70 @@ public:
 };
 ```
 
+
+### NO. 84 柱状图中的最大矩形
+
+**题目：**
+
+给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+
+求在该柱状图中，能够勾勒出来的矩形的最大面积。
+
+
+示例：
+
+![enter description here](../assets/2022-04-08/block_1.png)
+
+如上图所示的输入，最大矩形面积应为10。
+
+**题解：**
+
+这道题同样可以用单调栈来求解。我们选中第i根柱子，如果想要找到包含第i根柱子的最大矩形，那么需要分别向左和向右遍历寻找第一根高度小于它的柱子。第i根柱子的高度为矩形的高，这两根柱子之间的距离即为矩形的宽。
+
+上述寻找左右边界的过程可以采用单调递增栈来实现，如果当前遍历到的元素小于栈顶元素，那么说明找到了第一根高度小于栈顶元素的柱子。
+
+对于每一根柱子，我们都计算包含这根柱子的矩形的最大面积，最后返回这些矩形面积的最大值。
+
+代码：
+
+```c++
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        if(heights.size() == 1)
+            return heights[0];
+        //首尾都加上0，避免无法计算到边界情况
+        heights.push_back(0);
+        heights.insert(heights.begin(),0);
+        int n = heights.size();
+
+        //记录包含每一根柱子的矩形最大值
+        vector<int> area(n,0);
+        stack<int> st; //记录左右边界
+        //从左向右遍历，寻找右边界
+        for(int i = 0; i < n;i++)
+        {
+            while(!st.empty() && heights[st.top()] > heights[i])
+            {
+                int tmp = (i-st.top())*heights[st.top()];
+                area[st.top()] += tmp;
+                st.pop();
+            }
+            //如果此时stack内非空，那么顶端元素是向左遍历的第一根小于i的柱子
+            //这里宽度-1，避免第i根柱子的面积被计算2遍。
+            if(!st.empty())
+                area[i] += (i-st.top()-1)*heights[i];
+            st.push(i);
+        }
+
+        int rtn = 0;
+        for(int it:area)
+            rtn = max(rtn,it);
+        return rtn;
+    }
+};
+
+```
+
 -----
 下一篇博客该写点什么好呢……
