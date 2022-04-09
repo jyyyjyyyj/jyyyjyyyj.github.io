@@ -40,7 +40,7 @@ tags: [code]
 
 - [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/solution/)
 
-- [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/submissions/)
+- [柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 
 ## 动态规划
 
