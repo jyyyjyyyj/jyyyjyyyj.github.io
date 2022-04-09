@@ -474,7 +474,7 @@ public:
 
 示例：
 
-![enter description here](../assets/2022-04-08/block_1.png)
+![enter description here](../assets/2022-04-08/block.png)
 
 如上图所示的输入，最大矩形面积应为10。
 
