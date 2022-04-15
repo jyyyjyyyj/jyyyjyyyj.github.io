@@ -21,7 +21,7 @@ highlight:
   wrap: true
   hljs: false
 
-Time.zone = "Beijing"
+Timezone : 'Asia/Beijing'
 
 permalink: /:year-:month-:day-:title/
 sass:
