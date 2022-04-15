@@ -20,7 +20,9 @@ highlight:
   tab_replace: ''
   wrap: true
   hljs: false
-  
+
+Time.zone = "Beijing"
+
 permalink: /:year-:month-:day-:title/
 sass:
     style: compressed
