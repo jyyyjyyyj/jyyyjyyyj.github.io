@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 单调栈
-subtitle: Monotonic stack
+subtitle:  Monotonic stack
 tags: [code]
 ---
 
@@ -290,3 +290,5 @@ public:
 - [去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/)
 
 - [拼接最大数](https://leetcode-cn.com/problems/create-maximum-number/)
+
+- [每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
