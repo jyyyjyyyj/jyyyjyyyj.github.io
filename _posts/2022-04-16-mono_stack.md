@@ -11,7 +11,7 @@ tags: [code]
 当往栈中存入新元素时，为了维护栈的单调性，对于单调递增栈，如果栈顶元素大于新元素，那么要不断地弹出栈顶元素直到栈空了或者栈顶元素小于新元素。对于单调递减栈则是弹出小于新元素的栈顶元素。
 
 
-在之前的[这篇博客](https://jyyyjyyyj.github.io/2022-04-08-advanced_algorithm2/)中曾经提到了两道用单调栈解决的题目：一个是[接雨水](https://leetcode-cn.com/problems/trapping-rain-water/solution/)，另一个是[柱状图中最大的矩形](https://leetcode-cn.com/problems/trapping-rain-water/solution/)。做完这两道题之后我感觉还是不太会用单调栈（主要是不知道到底什么情况下可以用），所以这篇博客里记录了一些有关单调栈的问题的题解，通过找一找这些问题的共性来熟悉单调栈的使用方法。
+在之前的[这篇博客](https://jyyyjyyyj.github.io/2022-04-08-advanced_algorithm2/)中曾经提到了两道用单调栈解决的题目：一个是[接雨水](https://leetcode-cn.com/problems/trapping-rain-water/solution/)，另一个是[柱状图中最大的矩形](https://leetcode-cn.com/problems/trapping-rain-water/solution/)。做完这两道题之后我感觉还是不太会用单调栈（主要是不知道到底什么情况下可以用），所以这篇博客里记录了LeetCode中一些有关单调栈的问题的题解，通过找一找这些问题的共性来熟悉单调栈的使用方法。
 
 
 ## NO. 316 去除重复字母
