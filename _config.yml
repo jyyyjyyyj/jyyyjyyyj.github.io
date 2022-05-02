@@ -21,6 +21,10 @@ highlight:
   wrap: true
   hljs: false
 
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+
 Timezone : 'Asia/Beijing'
 
 permalink: /:year-:month-:day-:title/
