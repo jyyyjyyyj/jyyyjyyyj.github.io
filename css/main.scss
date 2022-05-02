@@ -29,9 +29,17 @@ hr {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+pre,
 code {
-    background-color: #d8e7ff;
-    color: #002b72;
+    font-size: 15px;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #fdf6e3;
+}
+
+code {
+    padding: 1px 5px;
 }
 
 // divs
