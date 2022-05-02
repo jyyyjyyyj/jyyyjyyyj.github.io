@@ -12,15 +12,6 @@ use_math: true
 profile-picture: assets/self-p.png
 favicon_location: assets/favicon.ico
 
-# 代码块的设置
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
-
 highlighter: rouge
 
 Timezone : 'Asia/Beijing'
