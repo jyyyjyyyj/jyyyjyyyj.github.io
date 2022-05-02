@@ -9,6 +9,8 @@ $max-width: 740px;
 $med-width: 600px;
 $small-width: 480px;
 
+@import url(perldoc.css);
+
 // Basic
 
 body {
@@ -31,13 +33,10 @@ hr {
 }
 
 code {
-    background-color: #e0e0e0;
+    background-color: #d8e7ff;
     color: #002b72;
-    font-size: 15px;
-    //border: 1px solid $grey-color-light;
-    //border-radius: 3px;
-    padding: 1px 5px;
 }
+
 
 // divs
 
