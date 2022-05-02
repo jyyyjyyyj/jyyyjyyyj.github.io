@@ -14,6 +14,9 @@ favicon_location: assets/favicon.ico
 
 highlighter: rouge
 
+plugins:
+  - jemoji
+
 Timezone : 'Asia/Beijing'
 
 permalink: /:year-:month-:day-:title/
