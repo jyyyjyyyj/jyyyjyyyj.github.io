@@ -21,9 +21,7 @@ highlight:
   wrap: true
   hljs: false
 
-kramdown:
-  syntax_highlighter: rouge
-  input: GFM
+highlighter: rouge
 
 Timezone : 'Asia/Beijing'
 
