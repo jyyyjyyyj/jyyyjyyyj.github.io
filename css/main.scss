@@ -30,14 +30,12 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-pre,
 code {
+    background-color: #e0e0e0;
+    color: #002b72;
     font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #e0e0e0;
-}
-code {
     padding: 1px 5px;
 }
 
