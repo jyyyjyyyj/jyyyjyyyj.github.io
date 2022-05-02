@@ -19,7 +19,7 @@ highlighter: rouge
 ```
 
 
-然后就是设置css\main.scss里添加设置代码块风格的代码了。我从[Pygments](https://github.com/richleland/pygments-css)下载了现成的.css文件（怎么可能自己写呢:laughing:），然后把他们放到了css文件夹下。有很多种主题可以选，在[这里](https://richleland.github.io/pygments-css/)可以预览。
+然后就是在css\main.scss里添加设置代码块风格的代码了。我从[Pygments](https://github.com/richleland/pygments-css)下载了现成的.css文件（怎么可能自己写呢:laughing:），然后把他们放到了css文件夹下。有很多种主题可以选，在[这里](https://richleland.github.io/pygments-css/)可以预览。
 
 在main.scss里添加这样一行代码，选了什么主题文件名就写什么，我选的是perldoc：
 
