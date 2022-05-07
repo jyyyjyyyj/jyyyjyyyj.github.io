@@ -1,1 +1,1 @@
-[My Blog](https://jyyyjyyyj.github.io/)
+[Click here](https://jyyyjyyyj.github.io/) to visit my blog
