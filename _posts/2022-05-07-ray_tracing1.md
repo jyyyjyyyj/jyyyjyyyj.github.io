@@ -5,7 +5,12 @@ subtitle: Ray tracing I
 tags: [code, math]
 ---
 
-
+<style> 
+  img{ 
+     width: 60%; 
+     padding-left: 20%; 
+  } 
+</style>
 
 <head>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -20,7 +25,7 @@ tags: [code, math]
 </head>
 
 
-其实很早之前我就想学光线追踪相关的内容，然而零零散散地看了很多博客或者是视频教程之后还是记不住……最近我在网上发现了一个写得很好的教材：[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html#overview)。它的标题真的很有诱惑力（一个周末就能实现:laughing:），内容也容易理解。本篇博客就是根据这个教材所记录的笔记。
+其实很早之前我就想学光线追踪相关的内容，然而零零散散地看了很多博客或者是视频教程之后还是记不住……最近我在网上发现了一个写得很好的教材：[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html#overview)。它的标题真的很有诱惑力（一个周末就能实现），内容也容易理解。本篇博客就是根据这个教材所记录的笔记。
 
 
 ## 1. 一些准备
