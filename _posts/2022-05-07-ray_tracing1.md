@@ -29,12 +29,6 @@ img{ width: 60%; padding-left: 20%; }
 其实很早之前我就想学光线追踪相关的内容，然而零零散散地看了很多博客或者是视频教程之后还是记不住……最近我在网上发现了一个写得很好的教材：[Ray Tracing In One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html#overview)。它的标题真的很有诱惑力（一个周末就能实现:laughing:），内容也容易理解。本篇博客就是根据这个教材所记录的笔记。
 
 
-
-
-
-
-
-
 ## 1. 一些准备
 
 ### 输出图片
@@ -43,7 +37,7 @@ img{ width: 60%; padding-left: 20%; }
 
 
 
-![enter description here](./images/ppm.jpg)
+![enter description here](../assets/2022-05-07/ppm.jpg)
 
 ### vec3类
 
@@ -89,7 +83,7 @@ void write_color_to_file (ofstream &out, color pixel_color) {
 
 从现在开始令图像的长宽比为16:9，再设置一个虚拟视口，并通过其来传递场景光线。视口的长宽比应该和图像一致，所以我们假设视口的长为4个单位，宽为2个单位，人眼在坐标轴原点，而视口距离我们1个单位。根据左手系坐标轴，可以画出这样的示意图：
 
-![enter description here](./images/viewport.png)
+![enter description here](../assets/2022-05-07/viewport.png)
 
 其中蓝色的方框代表了视口，光线可以射向视口中任意一个点，$u,v$的值为该点对应的像素在图片中的相对坐标除以图片的长或宽，其范围在0~1之间。
 
@@ -101,7 +95,7 @@ $$
 
 其中$start = (1,1,1)$，$end = (0.5,0.7,1)$，最终输出的图片如下所示：
 
-![enter description here](./images/blue_gradient_2.png)
+![enter description here](../assets/2022-05-07/blue_gradient.png)
 
 是很自然的渐变色。
 
@@ -142,7 +136,7 @@ $$
 结果如下图所示，球体的颜色是渐变的：
 
 
-![enter description here](./images/blue_gradient2.png)
+![enter description here](../assets/2022-05-07/blue_gradient2.png)
 
 球体的边缘存在锯齿，这个问题会在后续进行解决。
 
