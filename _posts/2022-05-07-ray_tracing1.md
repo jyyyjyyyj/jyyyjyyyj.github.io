@@ -87,7 +87,7 @@ $$
 {\rm blended} = (1-t) \cdot {\rm start} + t \cdot {\rm end}
 $$
 
-其中$start = (1,1,1)$，$end = (0.5,0.7,1)$，最终输出的图片如下所示：
+其中${\rm start} = (1,1,1)$，${\rm end} = (0.5,0.7,1)$，最终输出的图片如下所示：
 
 ![enter description here](../assets/2022-05-07/blue_gradient.png)
 
@@ -103,6 +103,7 @@ $$
 $$
 \rm{(P-C) \cdot (P-C)} = r^2
 $$
+
 其中${\rm P} = (x,y,z)$。将光线公式${\rm P}(t) = {\rm A}+t {\rm b}$代入可知，光线击中球体时的坐标应该满足：
 
 $$
