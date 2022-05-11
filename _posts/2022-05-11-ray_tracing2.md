@@ -26,7 +26,9 @@ tags: [code, math]
 
 在上一篇内容生成的球体图像中，我们可以发现球体的边缘存在锯齿（下图）。然而在真实情况下，用相机拍照不会出现这种情况。我们可以通过对一个像素中的多个样本（也就是有多条光线射向该像素）取平均来尽量使图片趋近于真实。
 
-<div align=center>![enter description here](../assets/2022-05-07/blue_gradient2.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/blue_gradient2.png)
+</div>
 
 我们新建一个相机类`camera`，将相机的基本参数（比如视口大小，相机位置，等等）写进去。
 
@@ -34,7 +36,9 @@ tags: [code, math]
 
 由此一来，边缘处的像素颜色就有了渐变效果，锯齿被减弱了：
 
-<div align=center>![enter description here](../assets/2022-05-07/blue_gradient3.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/blue_gradient3.png)
+</div>
 
 
 ### 漫反射材质
@@ -45,20 +49,26 @@ tags: [code, math]
 
 如下图所示，假设光线打到了表面上一点$\rm P$，而$\rm n$为$\rm P$处的法线。分别以$\rm P+n$与$\rm P-n$为圆形画单位圆，前者在表面外部，后者在表面内部，且二者均与表面相切。选择与入射光线在同一侧的圆（下图的情况是选择外侧的圆），并在圆中随机选择一点$\rm S$，就可以画出一条从$P$到$\rm S$的漫反射光线（图中橘色箭头）。
 
-<div align=center>![enter description here](../assets/2022-05-07/diffuse1.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/diffuse1.png)
+</div>
 
 如果漫反射光击中了物体，那么它会继续被反射，这种套娃反映在程序里就是一直不停地递归，如果递归深度过大可能会导致栈溢出，这种情况很显然是要避免的。因此，我们需要加上一个阈值来限制漫反射的次数。
 
 假设光线每次击中物体时，会有50%的光被吸收，最大反射次数为50次，会得到一个非常暗的球体，基本上啥都看不见。我们再对rgb值进行$gamma = 2$的伽马校正，即对rgb进行开根号处理，得到更加接近于现实的结果：
 
 
-<div align=center>![enter description here](../assets/2022-05-07/diffuse3.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/diffuse3.png)
+</div>
 
 此时会发现，在球的影子部位（红色圈内），会出现一圈圈类似于波纹的东西。这种现象叫影子失真（shadow acne）。为了解决这个问题，我们需要忽略在$t$值很小的地方生成的反射光。
 
 最后得到的结果是这样的：
 
-<div align=center>![enter description here](../assets/2022-05-07/diffuse4.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/diffuse4.png)
+</div>
 
 ### True Lambertian Reflection
 
@@ -66,7 +76,9 @@ tags: [code, math]
 
 得到二者的对比如下，由于场景比较简单，和之前的方法并没有太大差别。但是我们可以发现，采用了朗伯模型的图片里的阴影要小一些。
 
-<div align=center>![enter description here](../assets/2022-05-07/diffuse5.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/diffuse5.png)
+</div>
 
 # 5. 更多种类的材质
 
@@ -96,7 +108,9 @@ class material {
 对于表面光滑的金属，光线是不会以随机方向散射出去的。我们可以根据镜面反射原理算出反射光的方向：
 
 
-<div align=center>![enter description here](../assets/2022-05-07/reflect1.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/reflect1.png)
+</div>
 
 其中$\rm v$是入射光线，$n$为法向量，$\rm r$为出射光线，$\rm b$的长度为$\rm v \cdot n$。由此可以得出出射光线的方向为：
 
@@ -109,15 +123,21 @@ $$
 
 在原来位于图像中央的球体的左右各加入一个金属材质的球，看看效果：
 
-<div align=center>![enter description here](../assets/2022-05-07/metal1.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/metal1.png)
+</div>
 
 ### 模糊反射
 
 我们可以像下图一样，通过在远处圈定一个范围（图中的圆），在圆中随机选择一点作为反射向量的终点，以此来对反射光线加上扰动，让镜面反射看上去更加模糊一点。圆的直径越大，反射光线的角度变化范围越大。
 
 
-<div align=center>![enter description here](../assets/2022-05-07/reflect2.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/reflect2.png)
+</div>
 
 以下是给镜面反射加上扰动后的渲染结果，左侧球体对应的扰动圆半径为0.3，右侧对应的为1，显然右侧球体的表面看上去更模糊一些。
 
-<div align=center>![enter description here](../assets/2022-05-07/metal2.png)</div>
+<div align=center>
+    ![enter description here](../assets/2022-05-07/metal2.png)
+</div>
