@@ -4,6 +4,7 @@ title: 光线追踪 II
 subtitle: Ray tracing II
 tags: [code, math]
 ---
+
 <style> 
 img{ width: 70%; padding-left: 15%; } 
 </style>
@@ -30,7 +31,7 @@ img{ width: 70%; padding-left: 15%; }
 
 在上一篇内容生成的球体图像中，我们可以发现球体的边缘存在锯齿（下图）。然而在真实情况下，用相机拍照不会出现这种情况。我们可以通过对一个像素中的多个样本（也就是有多条光线射向该像素）取平均来尽量使图片趋近于真实。
 
-![enter description here](./images/blue_gradient2.png)
+![enter description here](../assets/2022-05-07/blue_gradient2.png)
 
 我们新建一个相机类`camera`，将相机的基本参数（比如视口大小，相机位置，等等）写进去。
 
@@ -38,7 +39,7 @@ img{ width: 70%; padding-left: 15%; }
 
 由此一来，边缘处的像素颜色就有了渐变效果，锯齿被减弱了：
 
-![enter description here](./images/blue_gradient3_1.png)
+![enter description here](../assets/2022-05-07/blue_gradient3.png)
 抗锯齿的方法有很多种，我记得在GAMES101和GAMES104课程里都有介绍过。
 
 ### 漫反射材质
@@ -49,20 +50,20 @@ img{ width: 70%; padding-left: 15%; }
 
 如下图所示，假设光线打到了表面上一点$\rm P$，而$\rm n$为$\rm P$处的法线。分别以$\rm P+n$与$\rm P-n$为圆形画单位圆，前者在表面外部，后者在表面内部，且二者均与表面相切。选择与入射光线在同一侧的圆（下图的情况是选择外侧的圆），并在圆中随机选择一点$\rm S$，就可以画出一条从$P$到$\rm S$的漫反射光线（图中橘色箭头）。
 
-![enter description here](./images/diffuse1.png)
+![enter description here](../assets/2022-05-07/diffuse1.png)
 
 如果漫反射光击中了物体，那么它会继续被反射，这种套娃反映在程序里就是一直不停地递归，如果递归深度过大可能会导致栈溢出，这种情况很显然是要避免的。因此，我们需要加上一个阈值来限制漫反射的次数。
 
 假设光线每次击中物体时，会有50%的光被吸收，最大反射次数为50次，会得到一个非常暗的球体，基本上啥都看不见。我们再对rgb值进行$gamma = 2$的伽马校正，即对rgb进行开根号处理，得到更加接近于现实的结果：
 
 
-![enter description here](./images/diffuse3.png)
+![enter description here](../assets/2022-05-07/diffuse3.png)
 
 此时会发现，在球的影子部位（红色圈内），会出现一圈圈类似于波纹的东西。这种现象叫影子失真（shadow acne）。为了解决这个问题，我们需要忽略在$t$值很小的地方生成的反射光。
 
 最后得到的结果是这样的：
 
-![enter description here](./images/diffuse4.png)
+![enter description here](../assets/2022-05-07/diffuse4.png)
 
 ### True Lambertian Reflection
 
@@ -72,7 +73,7 @@ img{ width: 70%; padding-left: 15%; }
 
 
 
-![enter description here](./images/diffuse5.png)
+![enter description here](../assets/2022-05-07/diffuse5.png)
 
 # 5. 更多种类的材质
 
@@ -103,7 +104,7 @@ class material {
 
 
 
-![enter description here](./images/reflect1.png)
+![enter description here](../assets/2022-05-07/reflect1.png)
 其中$\rm v$是入射光线，$n$为法向量，$\rm r$为出射光线，$\rm b$的长度为$\rm v \cdot n$。由此可以得出出射光线的方向为：
 
 $$
@@ -114,14 +115,14 @@ $$
 
 在原来位于图像中央的球体的左右各加入一个金属材质的球，看看效果：
 
-![enter description here](./images/metal1.png)
+![enter description here](../assets/2022-05-07/metal1.png)
 
 ### 模糊反射
 
 我们可以像下图一样，通过在远处圈定一个范围（图中的圆），在圆中随机选择一点作为反射向量的终点，以此来对反射光线加上扰动，让镜面反射看上去更加模糊一点。圆的直径越大，反射光线的角度变化范围越大。
 
 
-![enter description here](./images/reflect2.png)
+![enter description here](../assets/2022-05-07/reflect2.png)
 以下是给镜面反射加上扰动后的渲染结果，左侧球体对应的扰动圆半径为0.3，右侧对应的为1，显然右侧球体的表面看上去更模糊一些。
 
-![enter description here](./images/metal2.png)
+![enter description here](../assets/2022-05-07/metal2.png)
