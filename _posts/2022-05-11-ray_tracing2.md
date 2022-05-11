@@ -40,7 +40,7 @@ img{ width: 70%; padding-left: 15%; }
 由此一来，边缘处的像素颜色就有了渐变效果，锯齿被减弱了：
 
 ![enter description here](../assets/2022-05-07/blue_gradient3.png)
-抗锯齿的方法有很多种，我记得在GAMES101和GAMES104课程里都有介绍过。
+
 
 ### 漫反射材质
 
@@ -105,11 +105,13 @@ class material {
 
 
 ![enter description here](../assets/2022-05-07/reflect1.png)
+
 其中$\rm v$是入射光线，$n$为法向量，$\rm r$为出射光线，$\rm b$的长度为$\rm v \cdot n$。由此可以得出出射光线的方向为：
 
 $$
 \rm r = v - 2(v \cdot n)*b
 $$
+
 在代码中按照以上公式来计算光的反射。
 
 
@@ -123,6 +125,7 @@ $$
 
 
 ![enter description here](../assets/2022-05-07/reflect2.png)
+
 以下是给镜面反射加上扰动后的渲染结果，左侧球体对应的扰动圆半径为0.3，右侧对应的为1，显然右侧球体的表面看上去更模糊一些。
 
 ![enter description here](../assets/2022-05-07/metal2.png)
