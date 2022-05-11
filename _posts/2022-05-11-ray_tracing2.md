@@ -26,7 +26,7 @@ tags: [code, math]
 
 在上一篇内容生成的球体图像中，我们可以发现球体的边缘存在锯齿（下图）。然而在真实情况下，用相机拍照不会出现这种情况。我们可以通过对一个像素中的多个样本（也就是有多条光线射向该像素）取平均来尽量使图片趋近于真实。
 
-<div style="align: center">
+<div align=center>
     <img src="../assets/2022-05-07/blue_gradient2.png"/>
 </div>
 
