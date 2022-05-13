@@ -48,11 +48,13 @@ tags: [code, math]
 $$
 R(\theta) = R_0+(1-R_0)(1-\cos(\theta))^5
 $$
+
 其中：
 
 $$
 R_0 = \left(\frac{\eta_1 - \eta_2}{\eta_1+\eta_2}\right)^2
 $$
+
 其中$\theta$是入射光和表面法线的夹角，而$\eta_1$和$\eta_2$是反射平面两侧介质的折射率，$R_0$是当光线平行于表面法线入射时的反射系数。
 
 加入Schlick近似后得到的渲染结果（从左到右材质分别为：玻璃，漫反射材质，金属）：
@@ -75,7 +77,6 @@ $$
 <div align=center>
     <img src="../assets/2022-05-07/fov1.png"/>
 </div>
-
 
 那么$h = \tan(\frac{\theta}{2})$，其中$\theta$就是视野(field of view, fov)。我们可以通过修改$\theta$和纵横比来修改视口的大小。fov越小，我们能看见的范围就越小，这样子在视口显示出来的结果就像是物体被局部放大了一样。
 
