@@ -6,6 +6,18 @@ tags: [code, math]
 
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 这是关于光线追踪的第三篇学习笔记，参考了教材[Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)。前两篇的链接:
 
 - [光线追踪 I](https://jyyyjyyyj.github.io/2022-05-07-ray_tracing1/)
@@ -22,7 +34,10 @@ tags: [code, math]
 
 折射光的方向是根据斯涅耳定律决定的（这是初中物理的内容了吧，这里就不写了）。我们假设这个材质总是可以产生折射（不符合现实），得到如下的渲染结果：
 
-![enter description here](./images/refract1.png)
+
+<div align=center>
+    <img src="../assets/2022-05-07/refract1.png"/>
+</div>
 
 很明显这上面的结果不对。这是因为当光线从高折射率介质进入低折射率介质（比如从玻璃到空气），且入射角大于某个临界值的时候，是不会产生折射射线的，而是会发生全反射。因此，我们需要对这种情况进行判断。
 
@@ -42,18 +57,26 @@ $$
 
 加入Schlick近似后得到的渲染结果（从左到右材质分别为：玻璃，漫反射材质，金属）：
 
-![enter description here](./images/reflect3.png)
+<div align=center>
+    <img src="../assets/2022-05-07/reflect3.png"/>
+</div>
 
 如果想要得到一个中空的玻璃，可以在相同的球心处放置一个半径为负的玻璃球体（表面法线方向朝内），得到如下的效果：
 
-![enter description here](./images/reflect4.png)
 
+<div align=center>
+    <img src="../assets/2022-05-07/reflect4.png"/>
+</div>
 
 # 6. 相机可移动
 
 我们想要从各种角度来查看物体。首先假设光线仍然从原点朝向$z$轴负方向射出，投影到$z=-1$上，如下图所示：
 
-![enter description here](./images/fov1.png)
+<div align=center>
+    <img src="../assets/2022-05-07/fov1.png"/>
+</div>
+
+
 那么$h = \tan(\frac{\theta}{2})$，其中$\theta$就是视野(field of view, fov)。我们可以通过修改$\theta$和纵横比来修改视口的大小。fov越小，我们能看见的范围就越小，这样子在视口显示出来的结果就像是物体被局部放大了一样。
 
 ### 相机的移动和朝向
@@ -62,16 +85,23 @@ $$
 
 此外，但你看向一个物体的时候，在保持身体不动的情况下仍然可以通过转动头来观察四周。我们将这个转动的轴称为up vector（头绕着鼻子转，那么鼻子就是up vector），这根轴应该位于垂直于视线方向的平面上。为此，我们可以选择任意一个方向up，并将其投影到平面上获得相机的up vector$v$，然后得到如下图所示的局部坐标系$uvw$。需要注意的是，$v$，$w$和up在同一平面内。我们仍然令相机面对$-z$轴，那么$w$应该指向$z$轴正轴。
 
-![enter description here](./images/uvw.png)
+<div align=center>
+    <img src="../assets/2022-05-07/uvw.png"/>
+</div>
 
 改变相机的位置和朝向，令fov为90度，能够得出一个俯视视角的图像：
 
-![enter description here](./images/lookat.png)
+
+<div align=center>
+    <img src="../assets/2022-05-07/lookat.png"/>
+</div>
 
 
 如果我们缩小fov到20，可以获得一个放大的效果：
 
-![enter description here](./images/lookat2.png)
+<div align=center>
+    <img src="../assets/2022-05-07/lookat2.png"/>
+</div>
 
 # 7. 散焦模糊
 
@@ -86,13 +116,18 @@ $$
 
 为了让渲染结果看上去更真实，我们可以简单地模拟一下对焦的效果。在焦平面上的物体都可以清晰地成像。
 
-![enter description here](./images/lens.png)
+
+<div align=center>
+    <img src="../assets/2022-05-07/lens.png"/>
+</div>
 
 为了达到这个效果，给定焦平面到镜头的距离（focus distance，即为lookfrom到lookat的距离），我们在一个以lookfrom为圆心的圆内（圆在$uv$平面上）随机选一点作为光源，这个圆就相当于光圈。因此，圆的半径越小，景深就越大，能够清晰成像的物体范围就越大。当圆的半径为0时，所有的物体都能清晰成像。
 
 我们将光圈调到一个比较大的值（令直径为2），看看效果：
 
-![enter description here](./images/lens2.png)
+<div align=center>
+    <img src="../assets/2022-05-07/lens2.png"/>
+</div>
 
 可以看出，除了中间那个球，另外两个都变模糊了。
 
@@ -101,6 +136,9 @@ $$
 
 教材中所有的知识点到这里就都讲完了！这里放一张教材中给出的，最终的渲染结果：
 
-![enter description here](./images/final.png)
+
+<div align=center>
+    <img src="../assets/2022-05-07/final.png"/>
+</div>
 
 我注意到一旦场景里的物体变多，渲染会变得非常慢，查了一些资料之后发现可以通过并行运算来解决这个问题。此外，还有更多的扩展知识等待探索，比如如何生成除球体之外的形状，如何生成更复杂的纹理等等。作者还写了更高阶的教程：[Ray Tracing: The Next Week](https://raytracing.github.io/books/RayTracingTheNextWeek.html)。不过最近我有一篇会议论文要写，可能要过段时间才能继续学下去了。
