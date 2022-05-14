@@ -2,7 +2,7 @@
 layout: post
 title: 光线追踪 II
 subtitle: Ray tracing II
-tags: [code, math]
+tags: [code, graphics]
 ---
 
 <head>
