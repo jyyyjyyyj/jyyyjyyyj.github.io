@@ -11,6 +11,7 @@ Hi, 我是Ji，一位留学日本的硕士二年级学生。
 
 我的博客用来记录学习和生活，主要是一些和我的研究课题相关的话题，LeetCode题解等等。我主要写C++，使用过PCL/OpenGL/OpenCV/Unity，最近正在学习Python。我毕业后想要进入游戏行业，所以最近也在自学一些与游戏引擎相关的知识。
 
+如果你想了解更多有关我的信息，请查看[我的简历](https://jyyyjyyyj.github.io/resume/)（英文）。
 
 <br>
 <br>
@@ -21,3 +22,4 @@ My research interest is digital engineering. Simply speaking, it obtains 3d mode
 
 My blog is used to record my study and life. The blogs are mainly about topics related to my research, answers to LeetCode problems, etc. I write C++ and have the experience of using PCL/OpenGL/OpenCV/Unity. I am currently learning Python. I want to become a game developer after graduation, so I've been learning about game engines by myself.
 
+If you want to know more about me, please check [my resume](https://jyyyjyyyj.github.io/resume/).
