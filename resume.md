@@ -8,7 +8,7 @@ title: Yunyu Ji
 **M.E. in Precision Engineering, The University of Tokyo** (2021.04 ~ Current)
 
 
-**B.E. in Measuring Control Technology & Instruments, Southeast University (China)** (2016.08 ~ 2020.06)
+**B.E. in Measuring Control Technology & Instruments, Southeast University** (2016.08 ~ 2020.06)
 
 - GPA: 90/100
 
