@@ -27,11 +27,13 @@ layout: post
 $$
 {\rm h}_{t+1} = {\rm h}_t + f({\rm h}_t,\theta_t)
 $$
+
 其中$t\in{0,...,T},  {\rm h}_t \in R^D$。这一系列的隐藏状态可以看做是一个连续变换的离散化形式。由此，我们可以用一个常微分方程（ODE）来表示这个连续变化的过程：
 
 $$
 \frac{d{\rm h}_{t}}{dt} =  f({\rm h}(t),t,\theta)
 $$
+
 从输入层${\rm h}(0)$开始，我们可以将输出层${\rm h}(T)$看做是这个ODE初值问题在$T$时刻的解。
 
 ## 2. 方法
@@ -43,14 +45,19 @@ $$
 $$
 L({\rm z}(t_1)) = L(z(t_0) + \int_{t_0}^{t_1}f({\rm z(t)},t,\theta)) = L({\rm ODESolve}({\rm z}(t_0),f,t_0,t_1,\theta) )
 $$
+
 首先，我们要确定$L()$对${\rm z}(t)$的微分关系，即$\frac{\partial L}{\partial{\rm z}(t)}$。这个参数被称为adjoint，用${\rm a}(t)$表示，它的变化可以通过另一个ODE给出（链式法则）：
 
 $$
 \frac{d{\rm a}(t)}{dt} =  -{\rm a}(t)^\intercal \frac{\partial f({\rm z}(t),t,\theta))}{\partial {\rm z}}
 $$
+
 因此，要计算$\frac{\partial L}{\partial{\rm z}(t_1)}$，solver必须要不断地回溯，获取每一个时间点的$\frac{\partial L}{\partial{\rm z}(t)}$。微分的计算过程如下图所示：
 
-![enter description here](./images/diff.PNG)
+
+<div align=center>
+    <img src="../assets/2022-07-08/diff.PNG"/>
+</div>
 
 以下是计算loss关于$\theta$的导数的公式：
 
@@ -60,7 +67,10 @@ $$
 
 作者将初始状态，adjoint和其他的偏微分放到了一个向量里，通过以下的算法，使用一次ODE solver就可以计算出$z$,$a$和$\frac{\partial L}{\partial \theta}$。
 
-![enter description here](./images/algorithm1.PNG)
+
+<div align=center>
+    <img src="../assets/2022-07-08/algorithm1.PNG"/>
+</div>
 
 其中$a^{\rm \intercal} \frac{\partial f({\rm z}(t),t,\theta)}{\partial z}$是vector-Jacobian乘积。
 
