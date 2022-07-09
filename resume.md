@@ -26,7 +26,7 @@ title: Yunyu Ji
 
 **Tools**: Point Cloud Library (PCL), OpenGL, Pytorch
 
-**Languages**: Chinese (Mothertongue), English (TOEFL 110), Japanese (JLPT N4)
+**Languages**: Chinese (Mothertongue), English (TOEFL 110, GRE 327), Japanese (JLPT N4)
 
 ## Awards
 
