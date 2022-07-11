@@ -76,8 +76,12 @@ $$
 
 
 
-暂时就先写到这里，剩下的以后再补充。
+这篇论文的作者写了个库叫做[torchdiffeq](https://github.com/rtqichen/torchdiffeq)，可以在pytorch下使用他们提出的Neural ODE Solver。
 
+
+## 3. 其他
+
+有不少关于三角网格/点云表面变形的文章用了这个Neural ODE来模拟三维形状变形的过程。比如[MeshODE](https://arxiv.org/abs/2005.11617)将三角网格从source到target的变形看做是一个ODE，其中loss的计算中考虑了一个non-rigid loss，用于保留表面局部的细节，参考了[As-rigid-as-posible surface modeling](https://diglib.eg.org/bitstream/handle/10.2312/SGP.SGP07.109-116/109-116.pdf?sequence=1&isAllowed=n)这篇文章（这篇论文的作者Olga Sorkine桑真的好大佬啊）；而[Neural Mesh Flow](https://arxiv.org/pdf/2007.10973.pdf)首先用PointNet（在上一篇[论文阅读笔记](https://jyyyjyyyj.github.io/2022-06-20-3dn/)中也有提到过）对形状进行编码，然后再送入Neural ODE Solver 中进行求解。
 
 
 
@@ -91,3 +95,11 @@ $$
 ### Reference
 
 - [Neural Ordinary Differential Equations](https://proceedings.neurips.cc/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf)
+
+- [torchdiffeq](https://github.com/rtqichen/torchdiffeq)
+
+- [MeshODE](https://arxiv.org/abs/2005.11617)
+
+- [Neural Mesh Flow](https://arxiv.org/pdf/2007.10973.pdf)
+
+- [As-rigid-as-posible surface modeling](https://diglib.eg.org/bitstream/handle/10.2312/SGP.SGP07.109-116/109-116.pdf?sequence=1&isAllowed=n)
