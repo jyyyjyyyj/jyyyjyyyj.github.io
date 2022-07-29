@@ -4,6 +4,20 @@ title: 小波树
 subtitle: Wavelet tree
 tags: [math, code]
 ---
+
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
+
 居然有二十来天没有写博客了！
 
 前一段时间一直在忙着写我的第二篇会议论文，终于在上周提交啦！今天正好是我到东京的第30天，我基本上已经适应在日本的生活了，只不过最近新冠疫情肆虐所以很少出门，大部分时间都在自己的小房间里待着。
@@ -15,7 +29,9 @@ tags: [math, code]
 小波树经常被用来压缩数据，一个简单的例子如下图所示：
 
 
-![enter description here](./images/tree1.png)
+<div align=center>
+    <img src="../assets/2022-07-29/tree1.png"/>
+</div>
 
 上图所示的小波树是一个平衡二叉树结构。我们用$S[1,n]$来表示图中的字符串，其中$n$表示$S$的长度，假设字符串中包含的字符种类为$\sigma$。图中的字符串序列由a,b,c,d,r这五个字母组成，因此$\sigma = 5$。
 
@@ -45,7 +61,11 @@ tags: [math, code]
 
 递归查询的时间复杂度为$O(\lg n)$。对于范围内的每个点，我们可以继续向下查询来获取他们的具体坐标，每个点的查询时间为$O(\lg n)$。查找的过程大致如下图所示：
 
-![enter description here](./images/tree2.png)
+<div align=center>
+    <img src="../assets/2022-07-29/tree2.png"/>
+</div>
+
+
 
 这类功能常常被用来解决计算几何的问题，也会被运用到GIS上。
 
