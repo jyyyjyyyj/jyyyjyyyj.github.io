@@ -16,7 +16,9 @@ tags: [graphics]
 首先回忆一下图形渲染管线，几何处理阶段和像素处理阶段分别在第二步和第四步：
 
 
-![enter description here](./images/pipeline1.png)
+<div align=center>
+    <img src="../assets/2022-09-03/pipeline1.png"/>
+</div>
 
 ## G-buffer里都存了些什么
 
@@ -24,7 +26,11 @@ G-buffer是对所有用来储存光照相关的数据，并在最后的光照处
 
 以下是一个G-buffer的例子：
 
-![enter description here](./images/g_buffer.PNG)
+
+<div align=center>
+    <img src="../assets/2022-09-03/g_buffer.PNG"/>
+</div>
+
 
 ## 光照处理
 
