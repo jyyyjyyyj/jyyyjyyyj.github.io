@@ -19,3 +19,6 @@ tags: [graphics]
 5. [纹理贴图](https://jyyyjyyyj.github.io/2022-09-17-texture/) 
 
 6. 待续……
+
+
+此外还有姊妹篇：[抱佛脚学C++](https://jyyyjyyyj.github.io/2022-09-17-cppbasic/)（佛的脚都被我盘包浆啦！）。
