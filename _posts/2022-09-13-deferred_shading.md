@@ -3,6 +3,7 @@ layout: post
 title: 延迟渲染
 subtitle: Deferred shading
 tags: [graphics]
+private: true
 ---
 
 这是秋招抱佛脚系列的第4篇，内容是延迟渲染。本篇博客是关于延迟渲染的一个很简单的概述。
