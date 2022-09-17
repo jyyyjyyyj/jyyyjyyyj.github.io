@@ -17,3 +17,5 @@ tags: [graphics]
 4. [延迟渲染](https://jyyyjyyyj.github.io/2022-09-13-deferred_shading/)
 
 5. [纹理贴图](https://jyyyjyyyj.github.io/2022-09-17-texture/) 
+
+6. 待续……
