@@ -3,6 +3,7 @@ layout: post
 title: 局部光照模型
 subtitle: Local illumination model
 tags: [graphics]
+private: true
 ---
 
 <head>
