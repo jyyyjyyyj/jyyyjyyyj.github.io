@@ -148,14 +148,18 @@ Singleton* Singleton::instence = new Singleton(); //直接实例化
 
 一个简单的例子如下图。应用程序输出的是XML格式，而分析函数库却需要JSON格式的输入。此时我们可以编写一个适配器来将数据从XML转到JSON，从而保证二者的正常交互。
 
-
-![enter description here](./images/pattern1.png)
+<div align=center>
+    <img src="../assets/2022-10-01/pattern1.png"/>
+</div>
 
 适配器模式有两种实现方式，一种是对象适配器：适配器实现了其中一个对象的接口，并对另一个对象进行封装；另一种是类适配器：适配器同时继承两个对象的接口（只可以在支持多重继承的语言里实现）。
 
 以下是类适配器的UML图：
 
-![enter description here](./images/adapter_2.png)
+<div align=center>
+    <img src="../assets/2022-10-01/adapter_2.png"/>
+</div>
+
 ### 适配器模式的使用场合
 
 某个类的接口和其他代码不兼容时。
@@ -247,7 +251,10 @@ void ClientCode(const Target *target)
 
 主要包括创建者（返回具体工厂方法），具体工厂方法（返回具体产品），产品以及具体产品。
 
-![enter description here](./images/factory_1.png)
+
+<div align=center>
+    <img src="../assets/2022-10-01/factory_1.png"/>
+</div>
 
 ### 实现工厂方法模式
 
