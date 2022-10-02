@@ -368,7 +368,134 @@ int main() {
 
 ### 4.2 抽象工厂模式
 
-累了，明天再写。。
+工厂方法模式中，一个具体工厂类只能生产一类产品（比如iPhone的工厂只能生产iPhone）。如果此时我们不仅想让工厂生产iPhone，还想生产Mac，那就可以考虑使用抽象工厂模式。抽象工厂模式在抽象工厂中增加创建产品的接口，并在具体子工厂中实现新加产品的创建。同时，客户端在调用具体工厂生产产品时，无需知道工厂的具体信息。以下是抽象工厂模式的UML图：
+
+<div align=center>
+    <img src="../assets/2022-10-01/factory_2.png"/>
+</div>
+
+其实和工厂方法模式有些类似，不过不同之处在于，在抽象工厂模式中，一个具体工厂可以对应多种不同的产品。
+
+### 实现抽象工厂模式
+
+1. 首先把不同类型的产品和具体的产品变型列成一个矩阵。
+
+2. 为所有产品声明抽象接口，并让所有具体产品类实现该接口。
+
+3. 声明抽象工厂接口，并在抽象工厂中提供创建抽象产品的方法。
+
+4. 为每种产品变体实现一个具体产品类。
+
+5. 对特定具体工厂类进行初始化。 然后将该工厂对象传递给所有需要创建产品的类。
+
+6. 找出代码中所有对产品构造函数的直接调用， 将其替换为对工厂对象中相应构建方法的调用。
+
+```c++
+//每种抽象产品都有一个接口
+class AbstractProductA {
+ public:
+  virtual ~AbstractProductA(){};
+  virtual string UsefulFunctionA() const = 0; //纯虚函数，在子类中实现
+};
+
+//根据抽象产品，构建具体产品类
+class ConcreteProductA1 : public AbstractProductA {
+ public:
+  string UsefulFunctionA() const override {
+    return "The result of the product A1.";
+  }
+};
+
+class ConcreteProductA2 : public AbstractProductA {
+  string UsefulFunctionA() const override {
+    return "The result of the product A2.";
+  }
+};
+
+class AbstractProductB {
+
+ public:
+  virtual ~AbstractProductB(){};
+  virtual string UsefulFunctionB() const = 0;
+  //产品之间可以交互
+  virtual string AnotherUsefulFunctionB(const AbstractProductA &collaborator) const = 0;
+};
+
+class ConcreteProductB1 : public AbstractProductB {
+ public:
+  string UsefulFunctionB() const override {
+    return "The result of the product B1.";
+  }
+
+  string AnotherUsefulFunctionB(const AbstractProductA &collaborator) const override {
+    const string result = collaborator.UsefulFunctionA();
+    return "The result of the B1 collaborating with ( " + result + " )";
+  }
+};
+
+class ConcreteProductB2 : public AbstractProductB {
+ public:
+  string UsefulFunctionB() const override {
+    return "The result of the product B2.";
+  }
+
+  string AnotherUsefulFunctionB(const AbstractProductA &collaborator) const override {
+    const string result = collaborator.UsefulFunctionA();
+    return "The result of the B2 collaborating with ( " + result + " )";
+  }
+};
+
+//抽象工厂类声明一系列抽象产品
+class AbstractFactory {
+ public:
+  virtual AbstractProductA *CreateProductA() const = 0;
+  virtual AbstractProductB *CreateProductB() const = 0;
+};
+
+//具体工厂类生产具体的产品
+class ConcreteFactory1 : public AbstractFactory {
+ public:
+  AbstractProductA *CreateProductA() const override {
+    return new ConcreteProductA1();
+  }
+  AbstractProductB *CreateProductB() const override {
+    return new ConcreteProductB1();
+  }
+};
+
+class ConcreteFactory2 : public AbstractFactory {
+ public:
+  AbstractProductA *CreateProductA() const override {
+    return new ConcreteProductA2();
+  }
+  AbstractProductB *CreateProductB() const override {
+    return new ConcreteProductB2();
+  }
+};
+
+//客户端调用
+void ClientCode(const AbstractFactory &factory) {
+  const AbstractProductA *product_a = factory.CreateProductA();
+  const AbstractProductB *product_b = factory.CreateProductB();
+  cout << product_b->UsefulFunctionB() << "\n";
+  cout << product_b->AnotherUsefulFunctionB(*product_a) << "\n";
+  delete product_a;
+  delete product_b;
+}
+```
+
+
+### 抽象工厂模式的优缺点
+
+**优点**：同一具体工厂生产的产品可以相互匹配（可以为他们编写一些交互的函数），可以避免客户端代码和具体产品的耦合，符合单一职责原则和开放封闭原则。
+
+**缺点**：需要引入很多接口和类，代码比较复杂。
+
+
+
+## 5. 观察者模式
+
+待续
 
 
 ## Reference
