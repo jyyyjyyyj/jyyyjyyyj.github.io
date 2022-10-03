@@ -21,4 +21,4 @@ tags: [graphics]
 6. 待续……
 
 
-此外还有姊妹篇：[抱佛脚学C++](https://jyyyjyyyj.github.io/2022-09-17-cppbasic/)（佛的脚都被我盘包浆啦！）。
+此外还有姊妹篇：[抱佛脚学C++](https://jyyyjyyyj.github.io/2022-09-17-cppbasic/)以及[抱佛脚学设计模式](https://jyyyjyyyj.github.io/2022-10-01-design_pattern/)（佛的脚都被我盘包浆啦！）。
