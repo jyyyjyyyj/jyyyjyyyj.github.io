@@ -31,7 +31,7 @@ private: true
 
 2. 结构型模式：**适配器模式**、桥接模式、外观模式、组合模式、装饰模式、享元模式、代理模式
 
-3. 行为型模式：责任链模式、命令模式、解释器模式、迭代器模式、中介者模式、备忘录模式、观察者模式、状态模式、策略模式、模板方法模式、访问者模式
+3. 行为型模式：责任链模式、命令模式、解释器模式、迭代器模式、中介者模式、备忘录模式、**观察者模式**、状态模式、策略模式、模板方法模式、访问者模式
 
 其中加粗的是本篇博客已经涉及到的设计模式。
 
@@ -493,10 +493,187 @@ void ClientCode(const AbstractFactory &factory) {
 
 
 
-## 5. 观察者模式
+### 5. 观察者模式
 
-待续
+观察者模式是一种行为模式，能够定义一种订阅机制，可以在对象事件发生时通知多个观察该对象的对象。
 
+有用一些值得关注的状态的对象通常被称为目标，由于它要将自身的状态改变通知给其他对象，也被称为发布者。而所有关注发布者的对象被称为订阅者。这样的话，我们的代码中需要包括：一个用于存储订阅者对象引用的列表成员变量，以及几个用于添加或删除该列表中订阅者的公有方法。
+
+如果有很多订阅者， 所有订阅者都必须实现同样的接口， 发布者仅通过该接口与订阅者交互。 接口中必须声明通知方法及其参数， 这样发布者在发出通知时还能传递一些上下文数据。
+
+以下是观察者模式的结构图：
+
+<div align=center>
+    <img src="../assets/2022-10-01/subscribe.png"/>
+</div>
+
+
+### 实现观察者模式
+
+1. 将业务逻辑拆分成两部分：独立于其他代码的核心功能将作为发布者，其他代码则将转化为一组订阅类。
+
+2. 声明订阅者接口，应该至少实现一个update方法。
+
+
+3. 声明发布者接口并定义一些接口来在列表中添加和删除订阅对象，发布者必须**仅通过订阅者接口与它们进行交互**。
+
+4. 确定存放实际订阅列表的位置并实现订阅方法。 通常所有类型的发布者代码看上去都一样， 因此将列表放置在直接扩展自发布者接口的抽象类中是显而易见的。 具体发布者会扩展该类从而继承所有的订阅行为。
+
+5. 创建具体发布者类。 每次发布者发生了重要事件时都必须通知所有的订阅者。 
+
+6. 在具体订阅者类中实现通知更新的方法。 绝大部分订阅者需要一些与事件相关的上下文数据。 这些数据可作为通知方法的参数来传递。
+
+但还有另一种选择。 订阅者接收到通知后直接从通知中获取所有数据。 在这种情况下， 发布者必须通过更新方法将自身传递出去。 另一种不太灵活的方式是通过构造函数将发布者与订阅者永久性地连接起来。
+
+7. 客户端必须生成所需的全部订阅者， 并在相应的发布者处完成注册工作。
+
+以下是观察者模式的代码：
+
+```c++
+#include <iostream>
+#include <list>
+#include <string>
+using namespace std;
+
+
+class IObserver {
+ public:
+  virtual ~IObserver(){};
+  virtual void Update(const string &message_from_subject) = 0;
+};
+
+class ISubject {
+ public:
+  virtual ~ISubject(){};
+  virtual void Attach(IObserver *observer) = 0;
+  virtual void Detach(IObserver *observer) = 0;
+  virtual void Notify() = 0;
+};
+
+//subject是一个发布者类
+class Subject : public ISubject {
+ public:
+  virtual ~Subject() {
+    cout << "Goodbye, I was the Subject.\n";
+  }
+
+  //往订阅列表里新增
+  void Attach(IObserver *observer) override {
+    list_observer_.push_back(observer);
+  }
+
+  //去除订阅者
+  void Detach(IObserver *observer) override {
+    list_observer_.remove(observer);
+  }
+
+  //广播
+  void Notify() override {
+    list<IObserver *>::iterator iterator = list_observer_.begin();
+    HowManyObserver();
+    while (iterator != list_observer_.end()) {
+      (*iterator)->Update(message_);
+      ++iterator;
+    }
+  }
+
+  //创建信息
+  void CreateMessage(string message = "Empty") {
+    this->message_ = message;
+    Notify();
+  }
+  void HowManyObserver() {
+    cout << "There are " << list_observer_.size() << " observers in the list.\n";
+  }
+
+
+  void SomeBusinessLogic() {
+    this->message_ = "change message message";
+    Notify();
+    cout << "I'm about to do some thing important\n";
+  }
+
+ private:
+  list<IObserver *> list_observer_;
+  string message_;
+};
+
+//观察者
+class Observer : public IObserver {
+ public:
+  Observer(Subject &subject) : subject_(subject) {
+    this->subject_.Attach(this);
+    cout << "Hi, I'm the Observer \"" << ++Observer::static_number_ << "\".\n";
+    this->number_ = Observer::static_number_;
+  }
+  virtual ~Observer() {
+    cout << "Goodbye, I was the Observer \"" << this->number_ << "\".\n";
+  }
+
+  //获取来自于发布者的信息
+  void Update(const string &message_from_subject) override {
+    message_from_subject_ = message_from_subject;
+    PrintInfo();
+  }
+
+  //取消订阅
+  void RemoveMeFromTheList() {
+    subject_.Detach(this);
+    cout << "Observer \"" << number_ << "\" removed from the list.\n";
+  }
+
+
+  void PrintInfo() {
+    cout << "Observer \"" << this->number_ << "\": a new message is available --> " << this->message_from_subject_ << "\n";
+  }
+
+ private:
+  string message_from_subject_;
+  Subject &subject_;
+  static int static_number_;
+  int number_;
+};
+
+int Observer::static_number_ = 0;
+
+void ClientCode() {
+  Subject *subject = new Subject;
+  Observer *observer1 = new Observer(*subject);
+  Observer *observer2 = new Observer(*subject);
+  Observer *observer3 = new Observer(*subject);
+  Observer *observer4;
+  Observer *observer5;
+
+  subject->CreateMessage("Hello World! :D");
+  observer3->RemoveMeFromTheList();
+
+  subject->CreateMessage("The weather is hot today! :p");
+  observer4 = new Observer(*subject);
+
+  observer2->RemoveMeFromTheList();
+  observer5 = new Observer(*subject);
+
+  subject->CreateMessage("My new car is great! ;)");
+  observer5->RemoveMeFromTheList();
+
+  observer4->RemoveMeFromTheList();
+  observer1->RemoveMeFromTheList();
+
+  delete observer5;
+  delete observer4;
+  delete observer3;
+  delete observer2;
+  delete observer1;
+  delete subject;
+}
+```
+
+### 观察者模式的优缺点
+
+
+**优点**：符合开闭原则，无需修改发布者代码即可新增订阅者。可以在运行时建立对象联系。
+
+**缺点**：订阅者的通知顺序是随机的。
 
 ## Reference
 
