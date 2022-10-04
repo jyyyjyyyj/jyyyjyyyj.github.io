@@ -682,3 +682,5 @@ void ClientCode() {
 - [23种设计模式总结](https://blog.csdn.net/lgxzzz/article/details/124970034)
 
 - [C++面试突破](https://leetcode.cn/leetbook/read/cmian-shi-tu-po/v0xdyi/)
+
+- [设计模式之工厂模式](https://www.cnblogs.com/yssjun/p/11102162.html)
