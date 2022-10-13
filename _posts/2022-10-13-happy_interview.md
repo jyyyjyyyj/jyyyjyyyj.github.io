@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 记一次神奇的面试经历 
 tags: [others]
 ---
