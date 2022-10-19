@@ -46,7 +46,10 @@ tags: [others]
 忘记答得啥了，反正乱答了一通肯定是错的，以下是我找来的一张内存的分布图：
 
 
-![enter description here](./images/memory.png)
+
+<div align=center>
+    <img src="../assets/2022-10-01/memory.png"/>
+</div>
 
 
 **5. 进程和线程的区别？线程共享进程的那些资源呢？**
