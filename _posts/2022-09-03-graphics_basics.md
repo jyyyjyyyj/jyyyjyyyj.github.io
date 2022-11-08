@@ -3,6 +3,7 @@ layout: post
 title: 抱佛脚学图形学
 subtitle: Graphics Basics
 tags: [graphics]
+private: true
 ---
 
 
