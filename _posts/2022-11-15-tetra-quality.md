@@ -5,6 +5,20 @@ subtitle: About the quality measurement of tetrahedral mesh
 tags: [math]
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
+
+
 最近看了一些关于**四面体网格（tetrahedral mesh）** 的质量评定的论文，在这里记录一个很基础也很常用的方法。（说句题外话，tetrahedron这个单词真的好难念，每次念的时候感觉舌头都要打结了……）
 
 对于一个四面体而言，其形状越接近于正四面体，质量就越高，那么一种很简单的想法就是通过测量该四面体形状与正四面体的差距来表示它的质量。
@@ -30,7 +44,10 @@ $$
 
 其中$\delta = h(0)$，$h(\sigma)$的走向如下图：
 
-![enter description here](./images/hsigma.png)
+
+<div align=center>
+    <img src="../assets/2022-11-15/hsigma.png"/>
+</div>
 
 可以看出，当$\sigma \geq 0$的时候，$h(\sigma)$和$\sigma$是非常近似的，并且$h(\sigma)$不会穿过x轴，因此可以解决除零的问题。
 
