@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于四面体网格的质量判定
-subtitle: About the quality measurement of tetrahedral mesh
+subtitle: Quality measurement of tetrahedral mesh
 tags: [math]
 ---
 
