@@ -4,15 +4,19 @@ title: 在ParaView里编程
 subtitle: Programming in ParaView
 tags: [graphics]
 ---
-ParaView是一款开源的三维模型可视化软件，我之前处理的大多都是点云（可以用CloudCompare来可视化）和三角网格数据（MeshLab和GOMInspect），最近转向四面体数据处理了。常用的三个软件都应付不来，于是转向了ParaView。
 
-感觉这软件是真复杂啊……我想实现两个四面体网格对比的功能，但翻了翻各个菜单发现ParaView没这个功能，但是ParaView里可以运行Python代码，有一个Python Calculator可以运行一些Python里的计算，于是打算试着自己整一个。
+
+ParaView是一款开源的三维模型可视化软件，我之前处理的大多都是点云（可以用CloudCompare来可视化）和三角网格数据（我一般用MeshLab和GOMInspect），最近开始做四面体数据处理了。常用的三个软件都应付不来，于是转向了ParaView。
+
+感觉这软件是真复杂啊……我想实现两个四面体网格对比的功能，但翻了翻各个菜单发现ParaView没这个功能，但是ParaView里可以运行Python代码，于是打算试着用python写一个出来。
 
 ParaView可视化的过程可以分为三个部分：读取数据，滤波（filter）和渲染。在添加Python代码之前，首先需要了解一下filter这个概念。在ParaView中，filter是一个管线模块(pipeline module，我也不知道用中文怎么说合适)，所谓管线模块就是，上一步的输出是这一步的输入，而这一步的输出又是下一步的输入，整个数据处理的过程可以被看做是一条线性的管道。一个filter可以有多个输入和输出。
 
 我们可以通过添加filter的方式来实现Python脚本的运行。以下是ParaView的界面，在右侧的pipeline browser里面选中一个对象并apply，然后去上方菜单的Filters->Alphabetical里找到Python Calculator并添加。
 
-![enter description here](./images/para1.png)
+<div align=center>
+    <img src="../assets/2022-11-20/para1.png"/>
+</div>
 
 
 我的vtk文件是unstructured grid格式的（除此之外还有structured grid，structured points等等，不过unstructured是最常见的格式）。
@@ -37,7 +41,9 @@ pt = data.GetPointData()
 
 然后执行以下`print(pt)`，看看里面都存了些啥：
 
-![enter description here](./images/data_1.png)
+<div align=center>
+    <img src="../assets/2022-11-20/data.png"/>
+</div>
 
 以上是Point Data的一部分，可以看到array, component之类的数量都是0，我猜测这就是data array为空的原因（可能是因为我的vtk文件里的内容不够全……？反正挺奇怪的）。
 
@@ -58,10 +64,16 @@ for i in xrange(numpt):
 
 最后试着获取一下`ptarray`里的数据：
 
-![enter description here](./images/ptarray.png)
+
+<div align=center>
+    <img src="../assets/2022-11-20/ptarray.png"/>
+</div>
+
 然后把`ptarray`塞回到`pt`里：`pt.AddArray(ptarray)`，然后print一下看看：
 
-![enter description here](./images/array2.png)
+<div align=center>
+    <img src="../assets/2022-11-20/array2.png"/>
+</div>
 
 现在array的数量不是0了！成功！
 
