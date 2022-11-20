@@ -25,7 +25,7 @@ ParaView可视化的过程可以分为三个部分：读取数据，滤波（fil
 
 点击菜单栏View->Python Shell即可调出一个Python的编辑框。我通过执行Python指令来读取数据：
 
-```Python
+```python
 from paraview.simple import * 
 import paraview.vtk as vtk #必须要有这个才可以读取vtk格式
 
