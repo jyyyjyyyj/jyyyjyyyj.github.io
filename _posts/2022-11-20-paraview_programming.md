@@ -59,7 +59,7 @@ ptarray.SetNumberOfComponents(3) #每条数据的长度
 #把点坐标填进去
 for i in xrange(numpt):
 	p = data.GetPoint(i)
-	ptarray.InsertNextTuple3(p[0],p[1],p[2])
+	ptarray.InsertTuple3(i,p[0],p[1],p[2])
 ```
 
 最后试着获取一下`ptarray`里的数据：
@@ -77,6 +77,18 @@ for i in xrange(numpt):
 
 现在array的数量不是0了！成功！
 
-想要实现两个四面体对比的话，那么就对source->target进行knn搜索，寻找到source中每一点到target中最近的一点的距离，用pvpython自带的一些库应该不难实现。
+最后调用一下`writer`，把加入了array的数据写到一个新的vtu文件（就是unstructured的vtk），然后再读进来，发现data array里面有值了：
 
-就写到这儿，该睡觉去了。
+<div align=center>
+    <img src="../assets/2022-11-20/newdata.png"/>
+</div>
+
+想要实现两个四面体对比的话，那么就对source->target进行knn搜索，寻找到source中每一顶点点到target的顶点中最近的一点的距离，用pvpython自带的一些库应该不难实现。
+
+----
+
+### Reference
+
+- [ParaView Tutorials](https://docs.paraview.org/en/latest/Tutorials/ClassroomTutorials/PythonAndBatchPythonCalculatorProgrammableSourceAndFilter.html)
+
+- [ParaView 技术论坛](https://discourse.paraview.org/t/cant-view-the-new-data-array-in-paraview/1231)
