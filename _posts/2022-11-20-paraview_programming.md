@@ -83,12 +83,14 @@ for i in xrange(numpt):
     <img src="../assets/2022-11-20/newdata.png"/>
 </div>
 
-想要实现两个四面体对比的话，那么就对source->target进行knn搜索，寻找到source中每一顶点点到target的顶点中最近的一点的距离，用pvpython自带的一些库应该不难实现。
+想要实现两个四面体对比的话，那么就对source->target进行knn搜索，寻找到source中每一顶点点到target的顶点中最近的一点的距离，pvpython里带了很多有用的库比如numpy，所以不难实现。
 
 ----
 
 ### Reference
 
-- [ParaView Tutorials](https://docs.paraview.org/en/latest/Tutorials/ClassroomTutorials/PythonAndBatchPythonCalculatorProgrammableSourceAndFilter.html)
+- [ParaView Tutorials (Python & Batch)](https://docs.paraview.org/en/latest/Tutorials/ClassroomTutorials/PythonAndBatchPythonCalculatorProgrammableSourceAndFilter.html)
 
 - [ParaView 技术论坛](https://discourse.paraview.org/t/cant-view-the-new-data-array-in-paraview/1231)
+
+- [ParaView Tutorials (Using NumPy for processing data)](https://docs.paraview.org/en/latest/ReferenceManual/vtkNumPyIntegration.html)
