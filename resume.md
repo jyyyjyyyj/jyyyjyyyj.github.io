@@ -1,6 +1,6 @@
 ---
 Layout: default
-title: Yunyu Ji
+title: My Resume
 ---
 
 ## Education
