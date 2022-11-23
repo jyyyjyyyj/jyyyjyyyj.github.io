@@ -17,4 +17,4 @@ tags: [others]
 
 **11.23更新**
 
-晚上刷新了一下发现排名出来了，我拿了第五名，喜提亚马逊购物卡一张:laughing: :laughing: :laughing:！
+晚上刷新了一下发现排名出来了，我拿了第五名，喜提亚马逊购物卡一张:laughing: :laughing: :laughing:
