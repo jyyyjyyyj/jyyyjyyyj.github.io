@@ -19,14 +19,14 @@ tags: [others]
 
 这是周二闲逛的时候拍的奈良公园的小鹿↓
 
-![奈良小鹿](./images/deer.jpg)
+![奈良小鹿](../assets/2022-12-02/deer.jpg)
 
 
 晚上到达东京之后挤着满员电车回到了宿舍，还拖着行李箱爬了几百米的坡，这应该是我过得最累的一个生日了……回了宿舍之后打开电脑在steam上收了来自朋友的生日礼物，是我在心愿单里放了好久的p5r！！
 
 
 
-![enter description here](./images/happyhappy.png)
+![enter description here](../assets/2022-12-02/happyhappy.png)
 
 
 第一次在异国他乡过生日，祝自己生日快乐，希望未来的一年身体健康，风调雨顺。
