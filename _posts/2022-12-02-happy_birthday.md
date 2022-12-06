@@ -7,8 +7,8 @@ tags: [others]
 
 <style> 
   img{ 
-     width: 60%; 
-     padding-left: 20%; 
+     width: 70%; 
+     padding-left: 15%; 
   } 
 </style>
 
