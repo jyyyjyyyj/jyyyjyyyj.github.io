@@ -28,8 +28,3 @@ tags: [others]
 晚上刷新了一下发现排名出来了，我拿了第五名，喜提亚马逊购物卡一张~
 
 
-**2023.01.31更新**
-
-十几天前我的邮箱收到了小证书！
-
-![enter description here](../assets/2023-01-31/certificate.png)
