@@ -24,7 +24,7 @@ layout: post
 
 **12月初 去奈良参加学术会议：**
 
-![enter description here](../assets/2023-01-31/nara1.jpg)
+![enter description here](../assets/2023-01-31/nara3.jpg)
 
 ![enter description here](../assets/2023-01-31/nara2.jpg)
 
