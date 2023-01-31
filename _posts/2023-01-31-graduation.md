@@ -2,6 +2,7 @@
 title: 我要毕业啦！！
 subtitle: Graduation!!
 tags: [others]
+layout: post
 ---
 
 好久好久没有更新博客了！因为前一段时间一直在忙着写毕业论文。终于在昨天，我顺利结束了毕业答辩，要毕业啦！
@@ -15,19 +16,31 @@ tags: [others]
 
 **12月初 去奈良参加学术会议：**
 
-![enter description here](./images/nara1.jpg)
-![enter description here](./images/nara2.jpg)
+
+<div align=center>
+    <img src="../assets/2023-01-31/nara1.jpg"/>
+</div>
+
+<div align=center>
+    <img src="../assets/2023-01-31/nara2.jpg"/>
+</div>
 
 
 **12月中 一个人坐湘南新宿线去横滨看海**
 
-![](./images/yokohama.jpg)
+<div align=center>
+    <img src="../assets/2023-01-31/yokohama.jpg"/>
+</div>
 
 **12月下 六本木的圣诞灯光**
 
-![enter description here](./images/roppongi.jpg)
+<div align=center>
+    <img src="../assets/2023-01-31/roppongi.jpg"/>
+</div>
 
 
 **12月下 台场**
 
-![enter description here](./images/daiba.jpg)
+<div align=center>
+    <img src="../assets/2023-01-31/daiba.jpg"/>
+</div>
