@@ -5,6 +5,14 @@ tags: [others]
 layout: post
 ---
 
+
+<style> 
+  img{ 
+     width: 70%; 
+     padding-left: 15%; 
+  } 
+</style>
+
 好久好久没有更新博客了！因为前一段时间一直在忙着写毕业论文。终于在昨天，我顺利结束了毕业答辩，要毕业啦！
 
 毕业典礼在3月底举行，之后我就要回国成为一名社畜了。也就是说我还有将近两个月的空闲时间。由于我研一的时候是在家上网课度过的，攒下了不少奖学金，所以现在我有足够的时间和金钱能让我到处~~花天酒地~~玩耍（没有什么事情比这个更妙的了！！）
@@ -16,31 +24,20 @@ layout: post
 
 **12月初 去奈良参加学术会议：**
 
+![enter description here](../assets/2023-01-31/nara1.jpg)
 
-<div align=center>
-    <img src="../assets/2023-01-31/nara1.jpg"/>
-</div>
-
-<div align=center>
-    <img src="../assets/2023-01-31/nara2.jpg"/>
-</div>
+![enter description here](../assets/2023-01-31/nara2.jpg)
 
 
 **12月中 一个人坐湘南新宿线去横滨看海**
 
-<div align=center>
-    <img src="../assets/2023-01-31/yokohama.jpg"/>
-</div>
+![enter description here](../assets/2023-01-31/yokohama.jpg)
 
 **12月下 六本木的圣诞灯光**
 
-<div align=center>
-    <img src="../assets/2023-01-31/roppongi.jpg"/>
-</div>
+![enter description here](../assets/2023-01-31/roppongi.jpg)
 
 
 **12月下 台场**
 
-<div align=center>
-    <img src="../assets/2023-01-31/daiba.jpg"/>
-</div>
+![enter description here](../assets/2023-01-31/daiba.jpg)
