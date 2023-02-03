@@ -31,6 +31,9 @@ private: true
 
 ![enter description here](../assets/2023-02-02/yk23.jpg)
 
+这张的大海是碧蓝色的（是我加滤镜都不敢加的颜色），有点怀疑冲扫店的店员是不是手动帮我调色了。
+
+![enter description here](../assets/2023-02-02/yk13.jpg)
 
 **城市建筑**
 
