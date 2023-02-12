@@ -22,11 +22,11 @@ private: true
 
 仰视视角的海鸥线，隐约能看见车头坐着一位红衣服的女士。
 
-![enter description here](./images/yrkmm1.jpg)
+![enter description here](../assets/FilmsJP/daiba/yrkmm1.jpg)
 
 俯视视角的海鸥线：
 
-![enter description here](./images/yrkmm2.jpg)
+![enter description here](../assets/FilmsJP/daiba/yrkmm2.jpg)
 
 **台场海滨公园**
 
@@ -34,11 +34,11 @@ private: true
 
 用为宽幅模式拍摄的照片，面前的小哥在拍风景，而我在拍他（笑）。
 
-![enter description here](./images/2023-02-08_170838(4).jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba4.jpg)
 
 海滨公园的自由女神像：
 
-![enter description here](./images/daiba3.jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba3.jpg)
 
 
 **东京国际邮轮码头**
@@ -47,10 +47,12 @@ private: true
 
 船科学馆旁边的灯塔（我也不知道是不是灯塔，就当它是吧）
 
-![enter description here](./images/2023-02-08_170804(2).jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba1.jpg)
+
 停在岸边的南极科考船“宗谷号”
 
-![enter description here](./images/daiba2.jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba2.jpg)
+
 **高达基地**
 
 台场的标志性打卡地，除了海滨公园的那个自由女神像，还有位于DiverCity Tokyo Plaza（没有进去过，应该是一个购物中心） 门口的一个巨大的高达。
@@ -58,7 +60,7 @@ private: true
 从照片里可以看出它有几层楼那么高，据说到了特定的时间还会变身。
 
 
-![enter description here](./images/daiba5.jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba5.jpg)
 
 
 
