@@ -38,10 +38,10 @@ private: true
 ![enter description here](../assets/FilmsJP/kyoto/kamo5.jpg)
 
 
-
 鸭川三角洲，在这里可以踩着大石头过河。这个场景在京阿尼的动画《玉子市场》里出现过。
 
 ![enter description here](../assets/FilmsJP/kyoto/kamo4.jpg)
+
 **寺庙和神社**
 
 京都的寺庙和神社特别特别多，我感觉在某些区域走两步就能遇到一个寺庙，我在去年12月的时候去过清水寺和金阁寺，这次旅行去了另外几个比较有名的寺庙和神社，比如三十三间堂，下鸭神社，南禅寺等等。
