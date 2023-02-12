@@ -46,11 +46,12 @@ private: true
 
 船科学馆旁边的灯塔（我也不知道是不是灯塔，就当它是吧）
 
-![enter description here](.../assets/FilmsJP/daiba/daiba1.jpg)
+![enter description here](../assets/FilmsJP/daiba/daiba1.jpg)
 
 停在岸边的南极科考船“宗谷号”
 
 ![enter description here](../assets/FilmsJP/daiba/daiba2.jpg)
+
 
 **高达基地**
 
