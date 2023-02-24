@@ -66,6 +66,7 @@ private: true
 苹果工厂的外观
 
 ![enter description here](../assets/FilmsJP/aomori/aomori3.jpg)
+
 苹果工厂旁的大桥
 
 ![enter description here](../assets/FilmsJP/aomori/aomori6.jpg)
