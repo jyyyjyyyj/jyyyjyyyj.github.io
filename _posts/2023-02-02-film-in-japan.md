@@ -34,6 +34,8 @@ layout: post
 
 2. **[京都](https://jyyyjyyyj.github.io/2023-02-12-film-kyoto/)**
 
+3. **[神户·大阪](https://jyyyjyyyj.github.io/2023-02-24-film-kobe/)**
+
 ### 东北·北海道
 
 1. **[青森](https://jyyyjyyyj.github.io/2023-02-24-film-aomori/)**
