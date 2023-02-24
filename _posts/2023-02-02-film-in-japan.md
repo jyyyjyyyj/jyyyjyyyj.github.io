@@ -33,3 +33,7 @@ layout: post
 1. **[奈良](https://jyyyjyyyj.github.io/2023-02-04-film-nara/)**
 
 2. **[京都](https://jyyyjyyyj.github.io/2023-02-12-film-kyoto/)**
+
+### 东北·北海道
+
+1. **[青森]**(https://jyyyjyyyj.github.io/2023-02-24-film-aomori/)
